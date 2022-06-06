@@ -1,42 +1,26 @@
-package com.codeup.backendapi.data;
+package com.codeup.backendapi.dto;
 
-import org.hibernate.annotations.DynamicUpdate;
+import com.codeup.backendapi.data.Report;
 
-import javax.persistence.*;
+public class CreateReportDto {
 
-@Entity
-@Table(name = "reports")
-@DynamicUpdate
-public class Report {
-
-    //----- FIELDS -----
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+//    ----- FIELDS -----
     private String category;
     private String location;
     private String description;
     private String status = "unverified";
     private String moreDetails;
 
-    public Report(Long id, String category, String location, String description, String moreDetails) {
-        this.id = id;
+    public CreateReportDto(String category, String location, String description, String moreDetails) {
         this.category = category;
         this.location = location;
         this.description = description;
         this.moreDetails = moreDetails;
     }
 
-    public Report() {
+    public CreateReportDto() {
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getCategory() {
         return category;
@@ -76,16 +60,5 @@ public class Report {
 
     public void setMoreDetails(String moreDetails) {
         this.moreDetails = moreDetails;
-    }
-
-    @Override
-    public String toString() {
-        return "Report{" +
-                "id=" + id +
-                ", category='" + category + '\'' +
-                ", location=" + location +
-                ", description='" + description + '\'' +
-                ", status='" + status + '\'' +
-                '}';
     }
 }

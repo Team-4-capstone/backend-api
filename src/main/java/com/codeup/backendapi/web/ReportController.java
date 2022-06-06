@@ -1,10 +1,9 @@
 package com.codeup.backendapi.web;
 
 import com.codeup.backendapi.data.Report;
+import com.codeup.backendapi.dto.CreateReportDto;
 import com.codeup.backendapi.service.ReportService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,4 +24,15 @@ public class ReportController {
     public List<Report> getAllReports() {
         return reportService.getAll();
     }
+
+    @PostMapping
+    public void createPost(@RequestBody CreateReportDto dto) {
+        // TODO: If you want to associate the user to the post here, be sure to include a user object property on the post from the client side
+//        System.out.println(dto);
+        Report report = new Report();
+        reportService.addReport(dto, report);
+    }
+
+
+
 }
