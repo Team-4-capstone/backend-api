@@ -3,18 +3,18 @@ CREATE DATABASE if not exists bomb_reporter_db;
 USE bomb_reporter_db;
 
 
+
 CREATE TABLE reports
 (
     id           INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     more_details TEXT
-#     uxo_location    INT NOT NULL,
-#     uxo_description INT NOT NULL
-#     FOREIGN KEY (uxo_location) REFERENCES location (id),
-#     FOREIGN KEY (uxo_description) REFERENCES uxo_description (id)
 );
+
+
+
 CREATE TABLE location
 (
-    id        INT           NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id        INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
     latitude  VARCHAR(10) NOT NULL,
     longitude VARCHAR(10) NOT NULL
 );
@@ -73,5 +73,17 @@ CREATE TABLE uxo_location
     FOREIGN KEY (uxo_location) REFERENCES location (id)
 );
 
+CREATE TABLE uxo_reports
+(
 
+    id              INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    uxo_location    INT NOT NULL,
+    uxo_description INT NOT NULL,
+    uxo_categories  INT NOT NULL,
+    uxo_status      INT NOT NULL,
+    FOREIGN KEY (uxo_location) REFERENCES location (id),
+    FOREIGN KEY (uxo_description) REFERENCES uxo_description (id),
+    FOREIGN KEY (uxo_categories) REFERENCES uxo_categories (id),
+    FOREIGN KEY (uxo_status) REFERENCES uxo_status (id)
 
+)
