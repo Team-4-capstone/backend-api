@@ -15,8 +15,8 @@ CREATE TABLE reports
 CREATE TABLE location
 (
     id        INT           NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    latitude  DECIMAL(6, 5) NOT NULL,
-    longitude DECIMAL(6, 5) NOT NULL
+    latitude  VARCHAR(10) NOT NULL,
+    longitude VARCHAR(10) NOT NULL
 );
 
 CREATE TABLE uxo_description

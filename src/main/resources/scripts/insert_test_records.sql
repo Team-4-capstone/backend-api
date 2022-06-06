@@ -6,7 +6,7 @@ VALUES ('aerial_bomb', 'landmines', 'grenades', 'missiles', 'projectiles', 'othe
 
 
 INSERT INTO location(id, latitude, longitude)
-VALUES (1, 2.906124, 2.906134);
+VALUES (1, '21.906124', '21.906134');
 
 INSERT INTO reports(id, more_details)
 VALUES (1, 'here goes extra details');
@@ -17,7 +17,7 @@ INSERT INTO uxo_location(id, uxo_location, reports_id)
 VALUES (1, 1, 1);
 
 INSERT INTO uxo_status(id, uxo_status, uxo_reports)
-VALUES (1,'verified',1);
+VALUES (1, 'verified', 1);
 
 
 INSERT INTO uxo_description(id, size, img, color, quantity, secondary_color, reports_id)
