@@ -22,9 +22,9 @@ public class Location {
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "uxo_location",
             joinColumns =
-            @JoinColumn(name = "uxo_location"),
+            @JoinColumn(name = "id"),
             inverseJoinColumns =
-            @JoinColumn(name = "uxo_reportid"))
+            @JoinColumn(name = "uxo_location"))
 
     private List<Report> report;
 

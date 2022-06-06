@@ -19,14 +19,14 @@ public class Report {
     private String status = "unverified";
     private String moreDetails;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinTable(name = "uxo_location",
             joinColumns =
-            @JoinColumn(name = "uxo_location"),
+            @JoinColumn(name = "id"),
             inverseJoinColumns =
-            @JoinColumn(name = "uxo_reportid"))
+            @JoinColumn(name = "uxo_location"))
 
-    private List<Location> location;
+    private Location location;
 
     public Report(Long id, String category, String description, String moreDetails, Location location) {
         this.id = id;
@@ -55,11 +55,11 @@ public class Report {
         this.category = category;
     }
 
-    public List<Location> getLocation() {
+    public Location getLocation() {
         return location;
     }
 
-    public void setLocation(List<Location> location) {
+    public void setLocation(Location location) {
         this.location = location;
     }
 
