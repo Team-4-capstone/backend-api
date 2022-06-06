@@ -5,25 +5,26 @@ import org.hibernate.annotations.DynamicUpdate;
 import javax.persistence.*;
 
 @Entity
-@Table(name="reports")
+@Table(name = "reports")
 @DynamicUpdate
 public class Report {
 
-//----- FIELDS -----
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
+    //----- FIELDS -----
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String category;
     private String location;
     private String description;
     private String status = "unverified";
+    private String moreDetails;
 
-    public Report(Long id, String category, String location, String description, String status) {
+    public Report(Long id, String category, String location, String description, String moreDetails) {
         this.id = id;
         this.category = category;
         this.location = location;
         this.description = description;
-        this.status = status;
+        this.moreDetails = moreDetails;
     }
 
     public Report() {
