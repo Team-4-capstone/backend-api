@@ -16,8 +16,7 @@ private final ReportRepository reportRepository;
         this.reportRepository = reportRepository;
     }
 
-    public ReportService() {
-    }
+    
 
     public List<Report> getAll() {
         return reportRepository.findAll();
