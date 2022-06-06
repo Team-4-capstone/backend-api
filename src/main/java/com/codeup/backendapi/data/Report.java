@@ -3,6 +3,7 @@ package com.codeup.backendapi.data;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "reports")
@@ -14,12 +15,20 @@ public class Report {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String category;
-    private String location;
     private String description;
     private String status = "unverified";
     private String moreDetails;
 
-    public Report(Long id, String category, String location, String description, String moreDetails) {
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "uxo_location",
+            joinColumns =
+            @JoinColumn(name = "uxo_location"),
+            inverseJoinColumns =
+            @JoinColumn(name = "uxo_reportid"))
+
+    private List<Location> location;
+
+    public Report(Long id, String category, String description, String moreDetails, Location location) {
         this.id = id;
         this.category = category;
         this.location = location;
@@ -46,11 +55,11 @@ public class Report {
         this.category = category;
     }
 
-    public String getLocation() {
+    public List<Location> getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(List<Location> location) {
         this.location = location;
     }
 

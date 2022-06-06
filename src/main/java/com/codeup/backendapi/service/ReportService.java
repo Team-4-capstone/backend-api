@@ -30,7 +30,6 @@ private final ReportRepository reportRepository;
 //        User user = userService.getUserByUsername(username);
 
         newReport.setCategory(dto.getCategory());
-        newReport.setLocation(dto.getLocation());
         newReport.setDescription(dto.getDescription());
         newReport.setStatus(dto.getStatus());
         newReport.setMoreDetails(dto.getMoreDetails());
