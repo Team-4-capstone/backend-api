@@ -16,7 +16,7 @@ public class ReportController {
 
     @GetMapping
     public List<Report> getAllReports() {
-        Report report1 = new Report(1L, "bomb1", 4567894L, "testDesc", "unverified");
+        Report report1 = new Report(1L, "bomb1", "4567894", "testDesc", "unverified");
         reports.add(report1);
         return reports;
     }

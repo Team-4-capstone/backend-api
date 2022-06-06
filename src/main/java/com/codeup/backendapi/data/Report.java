@@ -14,11 +14,11 @@ public class Report {
 @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String category;
-    private Long location;
+    private String location;
     private String description;
     private String status = "unverified";
 
-    public Report(Long id, String category, Long location, String description, String status) {
+    public Report(Long id, String category, String location, String description, String status) {
         this.id = id;
         this.category = category;
         this.location = location;
@@ -45,11 +45,11 @@ public class Report {
         this.category = category;
     }
 
-    public Long getLocation() {
+    public String getLocation() {
         return location;
     }
 
-    public void setLocation(Long location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 
