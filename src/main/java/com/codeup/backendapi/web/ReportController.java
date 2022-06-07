@@ -30,8 +30,7 @@ public class ReportController {
 
     @PostMapping
     public void createPost(@RequestBody CreateReportDto dto) {
-        Category category = dto.getCategory();
-        for (Category category : )
+
 
 
         Report report = new Report();

@@ -14,20 +14,22 @@ public class ReportService {
     private final ReportRepository reportRepository;
     private final LocationRepository locationRepository;
     private final DescriptionRepository descriptionRepository;
+    private final CategoryRepository categoryRepository;
 
-    public ReportService(ReportRepository reportRepository, LocationRepository locationRepository
-            , DescriptionRepository descriptionRepository) {
+    public ReportService(ReportRepository reportRepository, LocationRepository locationRepository, DescriptionRepository descriptionRepository, CategoryRepository categoryRepository) {
         this.reportRepository = reportRepository;
         this.locationRepository = locationRepository;
         this.descriptionRepository = descriptionRepository;
+        this.categoryRepository = categoryRepository;
     }
-
 
     public List<Report> getAll() {
         return reportRepository.findAll();
     }
 
     public void addReport(CreateReportDto dto, Report newReport, Location location, Description description, Category category) {
+
+
 
         newReport.setStatus(newReport.getStatus());
         newReport.setMoreDetails(dto.getMoreDetails());
