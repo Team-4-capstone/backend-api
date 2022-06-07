@@ -26,8 +26,13 @@ INSERT INTO uxo_status(id, uxo_status, uxo_reports)
 VALUES (0, 'verified', 1);
 
 
-INSERT INTO uxo_description(id, size, img_file_path, color, quantity, secondary_color, reports_id)
-VALUES (0, 'm', 'image path', 'blue', 2, 'red', 1);
+# INSERT INTO uxo_description(id, size, img_file_path, color, quantity, secondary_color, reports_id)
+# VALUES (0, 'm', 'image path', 'blue', 2, 'red', 1);
+INSERT INTO description(id, size, img_file_path, color, quantity, secondary_color)
+VALUES (0, 'm', 'file path', 'blue', 2, 'red');
+
+INSERT INTO uxo_description(id, uxo_description, reports_id)
+VALUES (0, 1, 1);
 
 INSERT INTO uxo_categories(id, uxo_report_id, category_id)
 VALUES (0, 1, 1);

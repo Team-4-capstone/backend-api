@@ -19,17 +19,25 @@ CREATE TABLE location
     longitude VARCHAR(10) NOT NULL
 );
 
-CREATE TABLE uxo_description
+CREATE TABLE description
 (
     id              INT      NOT NULL AUTO_INCREMENT PRIMARY KEY,
     size            VARCHAR(100),
     img_file_path   LONGBLOB NOT NULL,
     color           varchar(20),
     quantity        INT      NOT NULL,
-    secondary_color varchar(20),
-    reports_id      INT      NOT NULL,
-    FOREIGN KEY (reports_id) REFERENCES reports (id)
+    secondary_color varchar(20)
 );
+
+CREATE TABLE uxo_description
+(
+
+    id              INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    uxo_description INT NOT NULL,
+    reports_id      INT NOT NULL,
+    FOREIGN KEY (reports_id) REFERENCES reports (id),
+    FOREIGN KEY (uxo_description) REFERENCES description (id)
+)
 
 
 CREATE TABLE uxo_status

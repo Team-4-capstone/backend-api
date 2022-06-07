@@ -1,9 +1,6 @@
 package com.codeup.backendapi.service;
 
-import com.codeup.backendapi.data.Location;
-import com.codeup.backendapi.data.LocationRepository;
-import com.codeup.backendapi.data.Report;
-import com.codeup.backendapi.data.ReportRepository;
+import com.codeup.backendapi.data.*;
 import com.codeup.backendapi.dto.CreateReportDto;
 import org.springframework.stereotype.Service;
 
@@ -16,10 +13,13 @@ public class ReportService {
     //    ----- FIELDS -----
     private final ReportRepository reportRepository;
     private final LocationRepository locationRepository;
+    private final DescriptionRepository descriptionRepository;
 
-    public ReportService(ReportRepository reportRepository, LocationRepository locationRepository) {
+    public ReportService(ReportRepository reportRepository, LocationRepository locationRepository
+            , DescriptionRepository descriptionRepository) {
         this.reportRepository = reportRepository;
         this.locationRepository = locationRepository;
+        this.descriptionRepository = descriptionRepository;
     }
 
 
@@ -27,17 +27,25 @@ public class ReportService {
         return reportRepository.findAll();
     }
 
-    public void addReport(CreateReportDto dto, Report newReport, Location location) {
+    public void addReport(CreateReportDto dto, Report newReport, Location location, Description description) {
 
         newReport.setCategory(dto.getCategory());
-        newReport.setDescription(dto.getDescription());
         newReport.setStatus(newReport.getStatus());
         newReport.setMoreDetails(dto.getMoreDetails());
-
         location.setLatitude(dto.getLat());
         location.setLongitude(dto.getLon());
-
         newReport.setLocation(location);
+
+
+        description.setColor(dto.getColor());
+        description.setImg_file_path(dto.getImg_file_path());
+        description.setQuantity(dto.getQuantity());
+        description.setSecondaryColor(dto.getSecondaryColor());
+        description.setSize(dto.getSize());
+
+        newReport.setDescription(description);
+
+        descriptionRepository.save(description);
         locationRepository.save(location);
         reportRepository.save(newReport);
     }

@@ -1,5 +1,6 @@
 package com.codeup.backendapi.web;
 
+import com.codeup.backendapi.data.Description;
 import com.codeup.backendapi.data.Location;
 import com.codeup.backendapi.data.Report;
 import com.codeup.backendapi.dto.CreateReportDto;
@@ -30,7 +31,8 @@ public class ReportController {
     public void createPost(@RequestBody CreateReportDto dto) {
         Report report = new Report();
         Location location = new Location();
-        reportService.addReport(dto, report, location);
+        Description description = new Description();
+        reportService.addReport(dto, report, location, description);
     }
 
 

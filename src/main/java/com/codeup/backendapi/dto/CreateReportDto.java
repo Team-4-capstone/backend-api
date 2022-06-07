@@ -8,12 +8,16 @@ public class CreateReportDto {
     private String category;
     private String lat;
     private String lon;
-    private String description;
     private String moreDetails;
 
-    public CreateReportDto(String category, String lat, String lon, String description, String moreDetails) {
+    private String size;
+    private String img_file_path;
+    private String color;
+    private int quantity;
+    private String secondaryColor;
+
+    public CreateReportDto(String category, String lat, String lon, String moreDetails) {
         this.category = category;
-        this.description = description;
         this.moreDetails = moreDetails;
         this.lat = lat;
         this.lon = lon;
@@ -22,6 +26,45 @@ public class CreateReportDto {
     public CreateReportDto() {
     }
 
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public String getImg_file_path() {
+        return img_file_path;
+    }
+
+    public void setImg_file_path(String img_file_path) {
+        this.img_file_path = img_file_path;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getSecondaryColor() {
+        return secondaryColor;
+    }
+
+    public void setSecondaryColor(String secondaryColor) {
+        this.secondaryColor = secondaryColor;
+    }
 
     public String getCategory() {
         return category;
@@ -47,13 +90,6 @@ public class CreateReportDto {
         this.lon = lon;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
 
 
@@ -71,8 +107,12 @@ public class CreateReportDto {
                 "category='" + category + '\'' +
                 ", lat='" + lat + '\'' +
                 ", lon='" + lon + '\'' +
-                ", description='" + description + '\'' +
                 ", moreDetails='" + moreDetails + '\'' +
+                ", size='" + size + '\'' +
+                ", img_file_path='" + img_file_path + '\'' +
+                ", color='" + color + '\'' +
+                ", quantity=" + quantity +
+                ", secondaryColor='" + secondaryColor + '\'' +
                 '}';
     }
 }
