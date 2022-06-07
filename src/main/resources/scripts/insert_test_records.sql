@@ -1,8 +1,14 @@
-USE bomb_reporter_db;USE bomb_reporter_db;
+USE bomb_reporter_db;
+USE bomb_reporter_db;
 
+INSERT INTO categories(id, name)
+    VALUE (1, 'aerial_bombs'),
+    (2, 'landmines'),
+    (3, 'grenades'),
+    (4, 'missiles_rockets'),
+    (5, 'projectiles_mortars'),
+    (6, 'miscellaneous');
 
-INSERT INTO categories(aerial_bombs, landmines, grenades, missiles_rockets, projectiles_mortars, miscellaneous)
-VALUES ('aerial_bomb', 'landmines', 'grenades', 'missiles', 'projectiles', 'other');
 
 
 INSERT INTO location(id, latitude, longitude)
