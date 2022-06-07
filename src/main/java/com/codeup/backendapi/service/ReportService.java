@@ -29,7 +29,9 @@ public class ReportService {
 
     public void addReport(CreateReportDto dto, Report newReport, Location location, Description description, Category category) {
 
-
+        if (categoryRepository.findCategoryByCategory(dto.getCategory()) != null) {
+            System.out.println("yes WORKS");
+        }
 
         newReport.setStatus(newReport.getStatus());
         newReport.setMoreDetails(dto.getMoreDetails());
