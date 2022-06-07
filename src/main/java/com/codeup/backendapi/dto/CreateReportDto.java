@@ -6,16 +6,18 @@ public class CreateReportDto {
 
 //    ----- FIELDS -----
     private String category;
-    private String location;
+    private String lat;
+    private String lon;
     private String description;
     private String status = "unverified";
     private String moreDetails;
 
-    public CreateReportDto(String category, String location, String description, String moreDetails) {
+    public CreateReportDto(String category, String lat, String lon, String description, String moreDetails) {
         this.category = category;
-        this.location = location;
         this.description = description;
         this.moreDetails = moreDetails;
+        this.lat = lat;
+        this.lon = lon;
     }
 
     public CreateReportDto() {
@@ -30,12 +32,20 @@ public class CreateReportDto {
         this.category = category;
     }
 
-    public String getLocation() {
-        return location;
+    public String getLat() {
+        return lat;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setLat(String lat) {
+        this.lat = lat;
+    }
+
+    public String getLon() {
+        return lon;
+    }
+
+    public void setLon(String lon) {
+        this.lon = lon;
     }
 
     public String getDescription() {
@@ -60,5 +70,17 @@ public class CreateReportDto {
 
     public void setMoreDetails(String moreDetails) {
         this.moreDetails = moreDetails;
+    }
+
+    @Override
+    public String toString() {
+        return "CreateReportDto{" +
+                "category='" + category + '\'' +
+                ", lat='" + lat + '\'' +
+                ", lon='" + lon + '\'' +
+                ", description='" + description + '\'' +
+                ", status='" + status + '\'' +
+                ", moreDetails='" + moreDetails + '\'' +
+                '}';
     }
 }

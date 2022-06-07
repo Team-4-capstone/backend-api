@@ -20,7 +20,6 @@ public class Report {
     private String status = "unverified";
     private String moreDetails;
 
-    @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnoreProperties("report")
     @JoinTable(name = "uxo_location",
             joinColumns =
@@ -28,7 +27,9 @@ public class Report {
             inverseJoinColumns =
             @JoinColumn(name = "uxo_location"))
 
+    @OneToOne
     private Location location;
+
 
     public Report(Long id, String category, String description, String moreDetails, Location location) {
         this.id = id;

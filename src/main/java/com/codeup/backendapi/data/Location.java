@@ -19,7 +19,7 @@ public class Location {
     private String latitude;
     private String longitude;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "uxo_location",
             joinColumns =
             @JoinColumn(name = "id"),
@@ -28,9 +28,13 @@ public class Location {
 
     private List<Report> report;
 
-    public Location() {
+    public Location(String latitude, String longitude) {
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
+    public Location() {
+    }
     public Long getId() {
         return id;
     }
@@ -64,4 +68,13 @@ public class Location {
         this.longitude = longitude;
     }
 
+    @Override
+    public String toString() {
+        return "Location{" +
+                "id=" + id +
+                ", latitude='" + latitude + '\'' +
+                ", longitude='" + longitude + '\'' +
+                ", report=" + report +
+                '}';
+    }
 }

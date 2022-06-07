@@ -1,5 +1,6 @@
 package com.codeup.backendapi.web;
 
+import com.codeup.backendapi.data.Location;
 import com.codeup.backendapi.data.Report;
 import com.codeup.backendapi.dto.CreateReportDto;
 import com.codeup.backendapi.service.ReportService;
@@ -27,10 +28,10 @@ public class ReportController {
 
     @PostMapping
     public void createPost(@RequestBody CreateReportDto dto) {
-        // TODO: If you want to associate the user to the post here, be sure to include a user object property on the post from the client side
-//        System.out.println(dto);
         Report report = new Report();
-        reportService.addReport(dto, report);
+        Location location = new Location();
+        System.out.println(dto + "dto");
+        reportService.addReport(dto, report, location);
     }
 
 
