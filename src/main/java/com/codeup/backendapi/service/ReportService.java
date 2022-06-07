@@ -27,9 +27,8 @@ public class ReportService {
         return reportRepository.findAll();
     }
 
-    public void addReport(CreateReportDto dto, Report newReport, Location location, Description description) {
+    public void addReport(CreateReportDto dto, Report newReport, Location location, Description description, Category category) {
 
-        newReport.setCategory(dto.getCategory());
         newReport.setStatus(newReport.getStatus());
         newReport.setMoreDetails(dto.getMoreDetails());
         location.setLatitude(dto.getLat());

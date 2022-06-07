@@ -15,7 +15,6 @@ public class Report {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String category;
     private String status = "unverified";
     private String moreDetails;
 
@@ -29,13 +28,15 @@ public class Report {
     @OneToOne
     private Location location;
 
+    @OneToOne
+    private Category category;
 
     @JsonIgnoreProperties("report")
-    @JoinTable(name = "uxo_description",
+    @JoinTable(name = "uxo_categories",
             joinColumns =
             @JoinColumn(name = "reports_id"),
             inverseJoinColumns =
-            @JoinColumn(name = "uxo_description"))
+            @JoinColumn(name = "category_id"))
 
     @OneToOne
     private Description description;
@@ -48,7 +49,7 @@ public class Report {
         this.description = description;
     }
 
-    public Report(Long id, String category, String moreDetails, Location location, Description description) {
+    public Report(Long id, Category category, String moreDetails, Location location, Description description) {
         this.id = id;
         this.category = category;
         this.location = location;
@@ -65,14 +66,6 @@ public class Report {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
     }
 
     public Location getLocation() {
@@ -97,6 +90,14 @@ public class Report {
 
     public void setMoreDetails(String moreDetails) {
         this.moreDetails = moreDetails;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     @Override
