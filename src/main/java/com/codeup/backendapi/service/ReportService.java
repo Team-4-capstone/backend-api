@@ -31,7 +31,7 @@ public class ReportService {
 
         newReport.setCategory(dto.getCategory());
         newReport.setDescription(dto.getDescription());
-        newReport.setStatus(dto.getStatus());
+        newReport.setStatus(newReport.getStatus());
         newReport.setMoreDetails(dto.getMoreDetails());
 
         location.setLatitude(dto.getLat());

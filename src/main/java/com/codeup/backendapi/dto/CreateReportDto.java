@@ -9,7 +9,6 @@ public class CreateReportDto {
     private String lat;
     private String lon;
     private String description;
-    private String status = "unverified";
     private String moreDetails;
 
     public CreateReportDto(String category, String lat, String lon, String description, String moreDetails) {
@@ -56,13 +55,7 @@ public class CreateReportDto {
         this.description = description;
     }
 
-    public String getStatus() {
-        return status;
-    }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
 
     public String getMoreDetails() {
         return moreDetails;
@@ -79,7 +72,6 @@ public class CreateReportDto {
                 ", lat='" + lat + '\'' +
                 ", lon='" + lon + '\'' +
                 ", description='" + description + '\'' +
-                ", status='" + status + '\'' +
                 ", moreDetails='" + moreDetails + '\'' +
                 '}';
     }
