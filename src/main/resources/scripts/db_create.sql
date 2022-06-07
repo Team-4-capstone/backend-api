@@ -43,13 +43,8 @@ CREATE TABLE uxo_status
 
 CREATE TABLE categories
 (
-    id                  INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    aerial_bombs        VARCHAR(20),
-    landmines           VARCHAR(20),
-    grenades            VARCHAR(20),
-    missiles_rockets    VARCHAR(20),
-    projectiles_mortars VARCHAR(20),
-    miscellaneous       VARCHAR(20)
+    id   INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(20)
 );
 
 CREATE TABLE uxo_categories
