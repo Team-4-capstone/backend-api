@@ -25,3 +25,5 @@ VALUES (0, 'm', 'image path', 'blue', 2, 'red', 1);
 
 INSERT INTO uxo_categories(id, uxo_report_id, category_id)
 VALUES (0, 1, 1);
+
+
