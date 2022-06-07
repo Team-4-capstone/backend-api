@@ -1,6 +1,7 @@
 package com.codeup.backendapi.service;
 
 import com.codeup.backendapi.data.Location;
+import com.codeup.backendapi.data.LocationRepository;
 import com.codeup.backendapi.data.Report;
 import com.codeup.backendapi.data.ReportRepository;
 import com.codeup.backendapi.dto.CreateReportDto;
@@ -14,9 +15,11 @@ public class ReportService {
 
     //    ----- FIELDS -----
     private final ReportRepository reportRepository;
+    private final LocationRepository locationRepository;
 
-    public ReportService(ReportRepository reportRepository) {
+    public ReportService(ReportRepository reportRepository, LocationRepository locationRepository) {
         this.reportRepository = reportRepository;
+        this.locationRepository = locationRepository;
     }
 
 
@@ -31,8 +34,11 @@ public class ReportService {
         newReport.setStatus(dto.getStatus());
         newReport.setMoreDetails(dto.getMoreDetails());
 
-        System.out.println(newReport + " new report ");
-        System.out.println(location + "new location report");
+        location.setLatitude(dto.getLat());
+        location.setLongitude(dto.getLon());
+
+        newReport.setLocation(location);
+        locationRepository.save(location);
         reportRepository.save(newReport);
     }
 

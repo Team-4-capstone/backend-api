@@ -30,7 +30,6 @@ public class ReportController {
     public void createPost(@RequestBody CreateReportDto dto) {
         Report report = new Report();
         Location location = new Location();
-        System.out.println(dto + "dto");
         reportService.addReport(dto, report, location);
     }
 

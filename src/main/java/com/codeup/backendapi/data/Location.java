@@ -22,7 +22,7 @@ public class Location {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "uxo_location",
             joinColumns =
-            @JoinColumn(name = "id"),
+            @JoinColumn(name = "reports_id"),
             inverseJoinColumns =
             @JoinColumn(name = "uxo_location"))
 

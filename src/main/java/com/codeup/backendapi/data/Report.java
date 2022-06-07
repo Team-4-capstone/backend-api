@@ -23,7 +23,7 @@ public class Report {
     @JsonIgnoreProperties("report")
     @JoinTable(name = "uxo_location",
             joinColumns =
-            @JoinColumn(name = "id"),
+            @JoinColumn(name = "reports_id"),
             inverseJoinColumns =
             @JoinColumn(name = "uxo_location"))
 
