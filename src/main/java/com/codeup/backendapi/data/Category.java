@@ -23,7 +23,9 @@ public class Category {
             joinColumns =
             @JoinColumn(name = "reports_id"),
             inverseJoinColumns =
-            @JoinColumn(name = "category_id"))
+            @JoinColumn(name = "uxo_categories"))
+
+
 
     private List<Report> report;
 

@@ -34,8 +34,9 @@ public class Report {
             joinColumns =
             @JoinColumn(name = "reports_id"),
             inverseJoinColumns =
-            @JoinColumn(name = "category_id"))
+            @JoinColumn(name = "uxo_categories"))
 
+    
     @OneToOne
     private Category category;
     @JsonIgnoreProperties("report")
