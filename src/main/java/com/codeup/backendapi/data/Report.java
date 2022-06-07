@@ -28,8 +28,6 @@ public class Report {
     @OneToOne
     private Location location;
 
-    @OneToOne
-    private Category category;
 
     @JsonIgnoreProperties("report")
     @JoinTable(name = "uxo_categories",
@@ -37,6 +35,15 @@ public class Report {
             @JoinColumn(name = "reports_id"),
             inverseJoinColumns =
             @JoinColumn(name = "category_id"))
+
+    @OneToOne
+    private Category category;
+    @JsonIgnoreProperties("report")
+    @JoinTable(name = "uxo_description",
+            joinColumns =
+            @JoinColumn(name = "reports_id"),
+            inverseJoinColumns =
+            @JoinColumn(name = "uxo_description"))
 
     @OneToOne
     private Description description;
