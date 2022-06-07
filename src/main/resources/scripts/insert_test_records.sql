@@ -34,7 +34,7 @@ VALUES (0, 'm', 'file path', 'blue', 2, 'red');
 INSERT INTO uxo_description(id, uxo_description, reports_id)
 VALUES (0, 1, 1);
 
-INSERT INTO uxo_categories(id, uxo_report_id, category_id)
+INSERT INTO uxo_categories(id, report_id, category_id)
 VALUES (0, 1, 1);
 
 

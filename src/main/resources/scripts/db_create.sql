@@ -57,13 +57,12 @@ CREATE TABLE categories
 
 CREATE TABLE uxo_categories
 (
-    id            INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    category_id   INT NOT NULL,
-    uxo_report_id INT NOT NULL,
-    FOREIGN KEY (category_id) REFERENCES categories (id),
-    FOREIGN KEY (uxo_report_id) REFERENCES reports (id)
+    id          INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    category_id INT NOT NULL,
+    report_id   INT NOT NULL,
+    FOREIGN KEY (report_id) REFERENCES reports (id),
+    FOREIGN KEY (category_id) REFERENCES categories (id)
 );
-
 
 
 CREATE TABLE uxo_location
