@@ -1,5 +1,6 @@
 package com.codeup.backendapi.data;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
@@ -20,6 +21,7 @@ public class Report {
     private String moreDetails;
 
     @ManyToOne(cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("report")
     @JoinTable(name = "uxo_location",
             joinColumns =
             @JoinColumn(name = "id"),
