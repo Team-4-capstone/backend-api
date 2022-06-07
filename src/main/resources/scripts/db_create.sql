@@ -23,7 +23,7 @@ CREATE TABLE uxo_description
 (
     id              INT      NOT NULL AUTO_INCREMENT PRIMARY KEY,
     size            VARCHAR(100),
-    img             LONGBLOB NOT NULL,
+    img_file_path   LONGBLOB NOT NULL,
     color           varchar(20),
     quantity        INT      NOT NULL,
     secondary_color varchar(20),
