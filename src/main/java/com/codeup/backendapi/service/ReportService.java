@@ -4,7 +4,6 @@ import com.codeup.backendapi.data.*;
 import com.codeup.backendapi.dto.CreateReportDto;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -15,19 +14,24 @@ public class ReportService {
     private final LocationRepository locationRepository;
     private final DescriptionRepository descriptionRepository;
     private final CategoryRepository categoryRepository;
+    private final StatusRepository statusRepository;
 
-    public ReportService(ReportRepository reportRepository, LocationRepository locationRepository, DescriptionRepository descriptionRepository, CategoryRepository categoryRepository) {
+    public ReportService(ReportRepository reportRepository, LocationRepository locationRepository, DescriptionRepository descriptionRepository, CategoryRepository categoryRepository, StatusRepository statusRepository) {
         this.reportRepository = reportRepository;
         this.locationRepository = locationRepository;
         this.descriptionRepository = descriptionRepository;
         this.categoryRepository = categoryRepository;
+        this.statusRepository = statusRepository;
     }
 
     public List<Report> getAll() {
         return reportRepository.findAll();
     }
 
-    public void addReport(CreateReportDto dto, Report newReport, Location location, Description description, Category category) {
+    public void addReport(CreateReportDto dto,
+                          Report newReport, Location location,
+                          Description description, Category category,
+                          Status status) {
 
 //        if (categoryRepository.findByCategory(dto.getCategory()).equals(dto.getCategory())){
 //            System.out.println(dto.getCategory());
@@ -36,6 +40,7 @@ public class ReportService {
 //            System.out.println("nah");
 //        }
 
+        newReport.setStatus(status);
         category.setCategory(dto.getCategory());
         newReport.setCategory(category);
         newReport.setStatus(newReport.getStatus());
@@ -52,6 +57,9 @@ public class ReportService {
         description.setSize(dto.getSize());
 
         newReport.setDescription(description);
+
+
+        statusRepository.save(status);
         categoryRepository.save(category);
         descriptionRepository.save(description);
         locationRepository.save(location);

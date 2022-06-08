@@ -1,9 +1,6 @@
 package com.codeup.backendapi.web;
 
-import com.codeup.backendapi.data.Category;
-import com.codeup.backendapi.data.Description;
-import com.codeup.backendapi.data.Location;
-import com.codeup.backendapi.data.Report;
+import com.codeup.backendapi.data.*;
 import com.codeup.backendapi.dto.CreateReportDto;
 import com.codeup.backendapi.service.ReportService;
 import org.springframework.web.bind.annotation.*;
@@ -37,7 +34,8 @@ public class ReportController {
         Location location = new Location();
         Description description = new Description();
         Category category = new Category();
-        reportService.addReport(dto, report, location, description, category);
+        Status status = new Status();
+        reportService.addReport(dto, report, location, description, category, status);
     }
 
 

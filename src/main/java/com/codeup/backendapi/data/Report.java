@@ -15,7 +15,6 @@ public class Report {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String status = "unverified";
     private String moreDetails;
 
     @JsonIgnoreProperties("report")
@@ -36,7 +35,7 @@ public class Report {
             inverseJoinColumns =
             @JoinColumn(name = "uxo_categories"))
 
-    
+
     @OneToOne
     private Category category;
     @JsonIgnoreProperties("report")
@@ -57,12 +56,32 @@ public class Report {
         this.description = description;
     }
 
-    public Report(Long id, Category category, String moreDetails, Location location, Description description) {
+
+    @JsonIgnoreProperties("report")
+    @JoinTable(name = "uxo_status",
+            joinColumns =
+            @JoinColumn(name = "reports_id"),
+            inverseJoinColumns =
+            @JoinColumn(name = "uxo_status"))
+
+    @OneToOne
+    private Status status;
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public Report(Long id, Category category, String moreDetails, Location location, Description description, Status status) {
         this.id = id;
         this.category = category;
         this.location = location;
         this.moreDetails = moreDetails;
         this.description = description;
+        this.status = status;
     }
 
     public Report() {
@@ -84,14 +103,6 @@ public class Report {
         this.location = location;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public String getMoreDetails() {
         return moreDetails;
     }
@@ -108,14 +119,16 @@ public class Report {
         this.category = category;
     }
 
+
     @Override
     public String toString() {
         return "Report{" +
                 "id=" + id +
-                ", category='" + category + '\'' +
+                ", moreDetails='" + moreDetails + '\'' +
                 ", location=" + location +
-                ", description='" + description + '\'' +
-                ", status='" + status + '\'' +
+                ", category=" + category +
+                ", description=" + description +
+                ", status=" + status +
                 '}';
     }
 }
