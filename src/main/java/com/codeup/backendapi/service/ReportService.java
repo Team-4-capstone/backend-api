@@ -31,6 +31,8 @@ public class ReportService {
 
         if (categoryRepository.findCategoryByCategory(dto.getCategory()) != null) {
             System.out.println("yes WORKS");
+        } else {
+            System.out.println("yup");
         }
 
         newReport.setStatus(newReport.getStatus());
