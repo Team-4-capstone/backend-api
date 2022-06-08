@@ -22,10 +22,10 @@ CREATE TABLE location
 CREATE TABLE description
 (
     id              INT      NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    size            VARCHAR(100),
+    size            VARCHAR(2),
     img_file_path   LONGBLOB NOT NULL,
     color           varchar(20),
-    quantity        INT      NOT NULL,
+    quantity        VARCHAR(3)      NOT NULL,
     secondary_color varchar(20)
 );
 
@@ -37,7 +37,7 @@ CREATE TABLE uxo_description
     reports_id      INT NOT NULL,
     FOREIGN KEY (reports_id) REFERENCES reports (id),
     FOREIGN KEY (uxo_description) REFERENCES description (id)
-)
+);
 
 
 CREATE TABLE uxo_status
@@ -52,7 +52,7 @@ CREATE TABLE uxo_status
 CREATE TABLE categories
 (
     id   INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(20)
+    category VARCHAR(20)
 );
 
 CREATE TABLE uxo_categories

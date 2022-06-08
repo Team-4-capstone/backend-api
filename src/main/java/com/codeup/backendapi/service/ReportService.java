@@ -29,12 +29,15 @@ public class ReportService {
 
     public void addReport(CreateReportDto dto, Report newReport, Location location, Description description, Category category) {
 
-        if (categoryRepository.findCategoryByCategory(dto.getCategory()) != null) {
-            System.out.println("yes WORKS");
-        } else {
-            System.out.println("yup");
-        }
+//        if (categoryRepository.findByCategory(dto.getCategory()).equals(dto.getCategory())){
+//            System.out.println(dto.getCategory());
+//            System.out.println("yes");
+//        } else {
+//            System.out.println("nah");
+//        }
 
+        category.setCategory(dto.getCategory());
+        newReport.setCategory(category);
         newReport.setStatus(newReport.getStatus());
         newReport.setMoreDetails(dto.getMoreDetails());
         location.setLatitude(dto.getLat());
@@ -49,10 +52,11 @@ public class ReportService {
         description.setSize(dto.getSize());
 
         newReport.setDescription(description);
-
+        categoryRepository.save(category);
         descriptionRepository.save(description);
         locationRepository.save(location);
         reportRepository.save(newReport);
+
     }
 
 
