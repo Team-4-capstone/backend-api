@@ -15,8 +15,8 @@ CREATE TABLE reports
 CREATE TABLE location
 (
     id        INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    latitude  VARCHAR(10) NOT NULL,
-    longitude VARCHAR(10) NOT NULL
+    latitude  VARCHAR(20) NOT NULL,
+    longitude VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE description

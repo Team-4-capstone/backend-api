@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping(value = "/api/reports", headers = "Accept=application/json")
 public class ReportController {
@@ -28,7 +29,7 @@ public class ReportController {
     @PostMapping
     public void createPost(@RequestBody CreateReportDto dto) {
 
-
+        System.out.println(dto);
 
         Report report = new Report();
         Location location = new Location();
