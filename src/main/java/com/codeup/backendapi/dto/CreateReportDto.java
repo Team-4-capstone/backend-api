@@ -11,25 +11,16 @@ public class CreateReportDto {
     private String moreDetails;
 
     private String size;
-    private String img_file_path;
     private String color;
-    private int quantity;
+    private String quantity;
     private String secondaryColor;
 
-//    public CreateReportDto(String category, String lat, String lon, String moreDetails) {
-//        this.category = category;
-//        this.moreDetails = moreDetails;
-//        this.lat = lat;
-//        this.lon = lon;
-//    }
-
-    public CreateReportDto(String category, String lat, String lon, String moreDetails, String size, String img_file_path, String color, int quantity, String secondaryColor) {
+    public CreateReportDto(String category, String lat, String lon, String moreDetails, String size,String color, String quantity, String secondaryColor) {
         this.category = category;
         this.lat = lat;
         this.lon = lon;
         this.moreDetails = moreDetails;
         this.size = size;
-        this.img_file_path = img_file_path;
         this.color = color;
         this.quantity = quantity;
         this.secondaryColor = secondaryColor;
@@ -46,14 +37,6 @@ public class CreateReportDto {
         this.size = size;
     }
 
-    public String getImg_file_path() {
-        return img_file_path;
-    }
-
-    public void setImg_file_path(String img_file_path) {
-        this.img_file_path = img_file_path;
-    }
-
     public String getColor() {
         return color;
     }
@@ -62,11 +45,11 @@ public class CreateReportDto {
         this.color = color;
     }
 
-    public int getQuantity() {
+    public String getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
 
@@ -121,7 +104,6 @@ public class CreateReportDto {
                 ", lon='" + lon + '\'' +
                 ", moreDetails='" + moreDetails + '\'' +
                 ", size='" + size + '\'' +
-                ", img_file_path='" + img_file_path + '\'' +
                 ", color='" + color + '\'' +
                 ", quantity=" + quantity +
                 ", secondaryColor='" + secondaryColor + '\'' +

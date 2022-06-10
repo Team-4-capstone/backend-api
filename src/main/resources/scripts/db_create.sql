@@ -23,9 +23,8 @@ CREATE TABLE description
 (
     id              INT        NOT NULL AUTO_INCREMENT PRIMARY KEY,
     size            VARCHAR(2),
-    img_file_path   LONGBLOB   NOT NULL,
     color           varchar(20),
-    quantity        VARCHAR(3) NOT NULL,
+    quantity        VARCHAR(10),
     secondary_color varchar(20)
 );
 
@@ -86,8 +85,6 @@ CREATE TABLE photos
 (
 
     id            INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    description   TEXT,
-    title         VARCHAR(20),
     img_file_name TEXT,
     img_file_path TEXT
 );
@@ -96,7 +93,7 @@ CREATE TABLE uxo_photos
 (
     id         INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 
-    uxo_photos  INT NOT NULL,
+    uxo_photos INT NOT NULL,
 
     reports_id INT NOT NULL,
     FOREIGN KEY (uxo_photos) REFERENCES photos (id),

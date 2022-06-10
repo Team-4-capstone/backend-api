@@ -1,6 +1,7 @@
 package com.codeup.backendapi.domain;
 
 import com.codeup.backendapi.data.Report;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
@@ -13,12 +14,12 @@ public class Photo {
     @Id
     @GeneratedValue
     private Long id;
-    private String title;
-    private String description;
     private String imagePath;
     private String imageFileName;
 
     @OneToMany(cascade = CascadeType.ALL)
+
+    @JsonIgnoreProperties("photo")
     @JoinTable(name = "uxo_photos",
             joinColumns =
             @JoinColumn(name = "reports_id"),
@@ -34,9 +35,7 @@ public class Photo {
         this.report = report;
     }
 
-    public Photo(String title, String description, String imagePath, String imageFileName) {
-        this.title = title;
-        this.description = description;
+    public Photo(String imagePath, String imageFileName) {
         this.imagePath = imagePath;
         this.imageFileName = imageFileName;
     }
@@ -51,22 +50,6 @@ public class Photo {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String getImagePath() {

@@ -68,7 +68,8 @@ public class Report {
     @OneToOne
     private Status status;
 
-    @JsonIgnoreProperties("report")
+
+
     @JoinTable(name = "uxo_photos",
             joinColumns =
             @JoinColumn(name = "reports_id"),

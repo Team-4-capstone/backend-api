@@ -17,9 +17,8 @@ public class Description {
     private Long id;
 
     private String size;
-    private String img_file_path;
     private String color;
-    private int quantity;
+    private String quantity;
     private String secondaryColor;
 
     @OneToMany(cascade = CascadeType.ALL)
@@ -31,10 +30,9 @@ public class Description {
 
     private List<Report> report;
 
-    public Description(Long id, String size, String img_file_path, String color, int quantity, String secondaryColor) {
+    public Description(Long id, String size, String color, String quantity, String secondaryColor) {
         this.id = id;
         this.size = size;
-        this.img_file_path = img_file_path;
         this.color = color;
         this.quantity = quantity;
         this.secondaryColor = secondaryColor;
@@ -59,14 +57,6 @@ public class Description {
         this.size = size;
     }
 
-    public String getImg_file_path() {
-        return img_file_path;
-    }
-
-    public void setImg_file_path(String img_file_path) {
-        this.img_file_path = img_file_path;
-    }
-
     public String getColor() {
         return color;
     }
@@ -75,11 +65,11 @@ public class Description {
         this.color = color;
     }
 
-    public int getQuantity() {
+    public String getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
 

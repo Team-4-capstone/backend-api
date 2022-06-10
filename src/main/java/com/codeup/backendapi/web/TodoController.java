@@ -5,6 +5,7 @@ import com.codeup.backendapi.data.*;
 import com.codeup.backendapi.domain.Photo;
 import com.codeup.backendapi.dto.CreateReportDto;
 import com.codeup.backendapi.service.ReportService;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -37,8 +38,6 @@ public class TodoController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public ResponseEntity<Photo> saveTodo(
-            @RequestParam("title") String title,
-            @RequestParam("description") String description,
             @RequestParam("file") MultipartFile file,
             @RequestParam("moreDetails") String moreDetails,
             @RequestParam("latitude") String latitude,
@@ -46,17 +45,17 @@ public class TodoController {
             @RequestParam("category") String category,
             @RequestParam("size") String size,
             @RequestParam("color") String color,
-            @RequestParam("quantity") int quantity,
+            @RequestParam("quantity") String quantity,
             @RequestParam("secondaryColor") String secondaryColor) {
         CreateReportDto dto = new CreateReportDto(category, latitude, longitude,
-                moreDetails, size, "", color, quantity, secondaryColor);
+                moreDetails, size, color, quantity, secondaryColor);
         Report report = new Report();
         Location location = new Location();
         Description descriptiondto = new Description();
         Category categorydto = new Category();
         Status status = new Status();
 //
-        return new ResponseEntity<>(service.saveTodo(title, description, file, dto, report, location,
+        return new ResponseEntity<>(service.saveTodo(file, dto, report, location,
                 descriptiondto, categorydto, status), HttpStatus.OK);
     }
 

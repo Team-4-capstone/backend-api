@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface PhotoService {
 
-    Photo saveTodo(String title, String description, MultipartFile file,
+    Photo saveTodo(MultipartFile file,
                    CreateReportDto dto,
                    Report newReport, Location location,
                    Description descriptionObj, Category category,

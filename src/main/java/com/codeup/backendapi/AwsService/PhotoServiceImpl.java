@@ -35,7 +35,7 @@ public class PhotoServiceImpl implements PhotoService {
     }
 
     @Override
-    public Photo saveTodo(String title, String description, MultipartFile file,
+    public Photo saveTodo(MultipartFile file,
                           CreateReportDto dto,
                           Report newReport, Location location,
                           Description descriptionObj, Category category,
@@ -59,8 +59,7 @@ public class PhotoServiceImpl implements PhotoService {
         } catch (IOException e) {
             throw new IllegalStateException("Failed to upload file", e);
         }
-        Photo todo = new Photo(description,
-                title, path, fileName
+        Photo todo = new Photo(path, fileName
         );
         System.out.println(todo);
 
@@ -75,7 +74,6 @@ public class PhotoServiceImpl implements PhotoService {
         location.setLongitude(dto.getLon());
         newReport.setLocation(location);
         descriptionObj.setColor(dto.getColor());
-        descriptionObj.setImg_file_path(dto.getImg_file_path());
         descriptionObj.setQuantity(dto.getQuantity());
         descriptionObj.setSecondaryColor(dto.getSecondaryColor());
         descriptionObj.setSize(dto.getSize());
@@ -86,8 +84,7 @@ public class PhotoServiceImpl implements PhotoService {
         locationRepository.save(location);
         reportRepository.save(newReport);
 
-
-        return repository.findByTitle(todo.getTitle());
+        return null;
 
     }
 
