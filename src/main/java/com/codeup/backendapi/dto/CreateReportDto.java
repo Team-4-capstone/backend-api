@@ -16,11 +16,23 @@ public class CreateReportDto {
     private int quantity;
     private String secondaryColor;
 
-    public CreateReportDto(String category, String lat, String lon, String moreDetails) {
+//    public CreateReportDto(String category, String lat, String lon, String moreDetails) {
+//        this.category = category;
+//        this.moreDetails = moreDetails;
+//        this.lat = lat;
+//        this.lon = lon;
+//    }
+
+    public CreateReportDto(String category, String lat, String lon, String moreDetails, String size, String img_file_path, String color, int quantity, String secondaryColor) {
         this.category = category;
-        this.moreDetails = moreDetails;
         this.lat = lat;
         this.lon = lon;
+        this.moreDetails = moreDetails;
+        this.size = size;
+        this.img_file_path = img_file_path;
+        this.color = color;
+        this.quantity = quantity;
+        this.secondaryColor = secondaryColor;
     }
 
     public CreateReportDto() {

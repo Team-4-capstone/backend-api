@@ -1,5 +1,6 @@
 package com.codeup.backendapi.data;
 
+import com.codeup.backendapi.domain.Photo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -67,6 +68,24 @@ public class Report {
     @OneToOne
     private Status status;
 
+    @JsonIgnoreProperties("report")
+    @JoinTable(name = "uxo_photos",
+            joinColumns =
+            @JoinColumn(name = "reports_id"),
+            inverseJoinColumns =
+            @JoinColumn(name = "uxo_photos"))
+
+    @OneToOne
+    private Photo photo;
+
+    public Photo getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(Photo photo) {
+        this.photo = photo;
+    }
+
     public Status getStatus() {
         return status;
     }
@@ -75,13 +94,15 @@ public class Report {
         this.status = status;
     }
 
-    public Report(Long id, Category category, String moreDetails, Location location, Description description, Status status) {
+
+    public Report(Long id, String moreDetails, Location location, Category category, Description description, Status status, Photo photo) {
         this.id = id;
-        this.category = category;
-        this.location = location;
         this.moreDetails = moreDetails;
+        this.location = location;
+        this.category = category;
         this.description = description;
         this.status = status;
+        this.photo = photo;
     }
 
     public Report() {

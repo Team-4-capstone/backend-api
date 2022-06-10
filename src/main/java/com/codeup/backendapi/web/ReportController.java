@@ -26,18 +26,18 @@ public class ReportController {
         return reportService.getAll();
     }
 
-    @PostMapping
-    public void createPost(@RequestBody CreateReportDto dto) {
-
-        System.out.println(dto);
-
-        Report report = new Report();
-        Location location = new Location();
-        Description description = new Description();
-        Category category = new Category();
-        Status status = new Status();
-        reportService.addReport(dto, report, location, description, category, status);
-    }
+//    @PostMapping
+//    public void createPost(@RequestBody CreateReportDto dto) {
+//
+//        System.out.println(dto);
+//
+//        Report report = new Report();
+//        Location location = new Location();
+//        Description description = new Description();
+//        Category category = new Category();
+//        Status status = new Status();
+//        reportService.addReport(dto, report, location, description, category, status);
+//    }
 
 
 
