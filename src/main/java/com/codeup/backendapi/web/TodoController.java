@@ -13,9 +13,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("api/v1/todo")
-@CrossOrigin()
 public class TodoController {
     private final PhotoService service;
 
