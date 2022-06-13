@@ -21,7 +21,7 @@ CREATE TABLE location
 
 CREATE TABLE description
 (
-    id              INT        NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id              INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     size            VARCHAR(2),
     color           varchar(20),
     quantity        VARCHAR(10),
@@ -34,6 +34,7 @@ CREATE TABLE uxo_description
     id              INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     uxo_description INT NOT NULL,
     reports_id      INT NOT NULL,
+    img_path        TEXT,
     FOREIGN KEY (reports_id) REFERENCES reports (id),
     FOREIGN KEY (uxo_description) REFERENCES description (id)
 );
@@ -81,22 +82,22 @@ CREATE TABLE uxo_location
     FOREIGN KEY (uxo_location) REFERENCES location (id)
 );
 
-CREATE TABLE photos
-(
-
-    id            INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    img_file_name TEXT,
-    img_file_path TEXT
-);
-
-CREATE TABLE uxo_photos
-(
-    id         INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-
-    uxo_photos INT NOT NULL,
-
-    reports_id INT NOT NULL,
-    FOREIGN KEY (uxo_photos) REFERENCES photos (id),
-
-    FOREIGN KEY (reports_id) REFERENCES reports (id)
-);
+# CREATE TABLE photos
+# (
+#
+#     id            INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+#     img_file_name TEXT,
+#     img_file_path TEXT
+# );
+#
+# CREATE TABLE uxo_photos
+# (
+#     id         INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+#
+#     uxo_photos INT NOT NULL,
+#
+#     reports_id INT NOT NULL,
+#     FOREIGN KEY (uxo_photos) REFERENCES photos (id),
+#
+#     FOREIGN KEY (reports_id) REFERENCES reports (id)
+# );

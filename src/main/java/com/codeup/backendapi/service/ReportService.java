@@ -30,43 +30,44 @@ public class ReportService {
         return reportRepository.findAll();
     }
 
-//    public void addReport(CreateReportDto dto,
-//                          Report newReport, Location location,
-//                          Description description, Category category,
-//                          Status status, MultipartFile file) {
-//
-////        if (categoryRepository.findByCategory(dto.getCategory()).equals(dto.getCategory())){
-////            System.out.println(dto.getCategory());
-////            System.out.println("yes");
-////        } else {
-////            System.out.println("nah");
-////        }
-//        newReport.setStatus(status);
-//        category.setCategory(dto.getCategory());
-//        newReport.setCategory(category);
-//        newReport.setStatus(newReport.getStatus());
-//        newReport.setMoreDetails(dto.getMoreDetails());
-//        location.setLatitude(dto.getLat());
-//        location.setLongitude(dto.getLon());
-//        newReport.setLocation(location);
-//
-//
-//        description.setColor(dto.getColor());
-//        description.setImg_file_path(dto.getImg_file_path());
-//        description.setQuantity(dto.getQuantity());
-//        description.setSecondaryColor(dto.getSecondaryColor());
-//        description.setSize(dto.getSize());
-//
-//        newReport.setDescription(description);
-//
-//
-//        statusRepository.save(status);
-//        categoryRepository.save(category);
-//        descriptionRepository.save(description);
-//        locationRepository.save(location);
-//        reportRepository.save(newReport);
+    public void addReport(CreateReportDto dto,
+                          Report newReport, Location location,
+                          Description description, Category category,
+                          Status status) {
 
-//    }
+//        if (categoryRepository.findByCategory(dto.getCategory()).equals(dto.getCategory())){
+//            System.out.println(dto.getCategory());
+//            System.out.println("yes");
+//        } else {
+//            System.out.println("nah");
+//        }
+
+        newReport.setStatus(status);
+        category.setCategory(dto.getCategory());
+        newReport.setCategory(category);
+        newReport.setStatus(newReport.getStatus());
+        newReport.setMoreDetails(dto.getMoreDetails());
+        location.setLatitude(dto.getLat());
+        location.setLongitude(dto.getLon());
+        newReport.setLocation(location);
+
+
+        description.setImg_path(dto.getImg_path());
+        description.setColor(dto.getColor());
+        description.setQuantity(dto.getQuantity());
+        description.setSecondaryColor(dto.getSecondaryColor());
+        description.setSize(dto.getSize());
+
+        newReport.setDescription(description);
+
+
+        statusRepository.save(status);
+        categoryRepository.save(category);
+        descriptionRepository.save(description);
+        locationRepository.save(location);
+        reportRepository.save(newReport);
+
+    }
 
 
 }

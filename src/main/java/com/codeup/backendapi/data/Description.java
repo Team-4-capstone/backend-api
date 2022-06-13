@@ -20,6 +20,7 @@ public class Description {
     private String color;
     private String quantity;
     private String secondaryColor;
+    private String img_path;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "uxo_description",
@@ -30,12 +31,14 @@ public class Description {
 
     private List<Report> report;
 
-    public Description(Long id, String size, String color, String quantity, String secondaryColor) {
+    public Description(Long id, String size, String color, String quantity, String secondaryColor, String img_path, List<Report> report) {
         this.id = id;
         this.size = size;
         this.color = color;
         this.quantity = quantity;
         this.secondaryColor = secondaryColor;
+        this.img_path = img_path;
+        this.report = report;
     }
 
     public Description() {
@@ -83,6 +86,14 @@ public class Description {
 
     public List<Report> getReport() {
         return report;
+    }
+
+    public String getImg_path() {
+        return img_path;
+    }
+
+    public void setImg_path(String img_path) {
+        this.img_path = img_path;
     }
 
     public void setReport(List<Report> report) {
