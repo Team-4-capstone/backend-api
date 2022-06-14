@@ -34,7 +34,6 @@ CREATE TABLE uxo_description
     id              INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     uxo_description INT NOT NULL,
     reports_id      INT NOT NULL,
-    img_path        TEXT,
     FOREIGN KEY (reports_id) REFERENCES reports (id),
     FOREIGN KEY (uxo_description) REFERENCES description (id)
 );
