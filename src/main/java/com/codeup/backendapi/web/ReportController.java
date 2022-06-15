@@ -27,16 +27,20 @@ public class ReportController {
     }
 
     @PostMapping
-    public void createPost(@RequestBody CreateReportDto dto) {
+    public String createPost(@RequestBody CreateReportDto dto) {
 
         Report report = new Report();
         Location location = new Location();
         Description description = new Description();
         Category category = new Category();
         Status status = new Status();
-        reportService.addReport(dto, report, location, description, category, status);
+        return reportService.addReport(dto, report, location, description, category, status);
     }
 
+    @PutMapping("{id}")
+    private void updateReport(@RequestBody CreateReportDto dto, @PathVariable Long id) {
+        reportService.updateReport(dto, id);
+    }
 
 
 }
