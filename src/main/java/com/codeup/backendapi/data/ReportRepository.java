@@ -27,4 +27,9 @@ public interface ReportRepository extends JpaRepository<Report, Integer> {
     Report findReportById(Long id);
 
 
+    @Query(nativeQuery = true,
+            value = "SELECT reports_id FROM uxo_location l JOIN location l2 on l2.id = l.uxo_location WHERE latitude = ?; ")
+    String findReportByLocation(String lat);
+
+
 }

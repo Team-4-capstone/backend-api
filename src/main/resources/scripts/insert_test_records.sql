@@ -40,5 +40,12 @@
 #
 
 USE bomb_reporter_db;
-SELECT * FROM location
-WHERE latitude = '12.12'
+SELECT * FROM uxo_location l
+WHERE l.uxo_location = '19.0398153';
+
+
+
+USE bomb_reporter_db;
+SELECT reports_id FROM uxo_location l
+JOIN location l2 on l2.id = l.uxo_location
+WHERE latitude = '19.0398153';

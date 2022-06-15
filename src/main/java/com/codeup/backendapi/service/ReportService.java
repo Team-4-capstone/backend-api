@@ -4,7 +4,6 @@ import com.codeup.backendapi.data.*;
 import com.codeup.backendapi.dto.CreateReportDto;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -29,10 +28,10 @@ public class ReportService {
         return reportRepository.findAll();
     }
 
-    public void addReport(CreateReportDto dto,
-                          Report newReport, Location location,
-                          Description description, Category category,
-                          Status status) {
+    public String addReport(CreateReportDto dto,
+                            Report newReport, Location location,
+                            Description description, Category category,
+                            Status status) {
         newReport.setStatus(status);
         category.setCategory(dto.getCategory());
         newReport.setCategory(category);
@@ -57,11 +56,13 @@ public class ReportService {
         descriptionRepository.save(description);
         locationRepository.save(location);
         reportRepository.save(newReport);
+        String reportId = reportRepository.findReportByLocation(dto.getLat());
+
+        return reportId;
 
     }
 
     public void updateReport(CreateReportDto dto, Long id) {
-
 
 
 //        gets from the tables all objects that have the report id based on the parameter id from above
@@ -102,9 +103,6 @@ public class ReportService {
 
 //        finally save the report tp update changes
         reportRepository.save(reportToUpdate);
-
-
-
     }
 
 }
