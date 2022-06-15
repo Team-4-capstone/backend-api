@@ -37,6 +37,10 @@ public class ReportController {
         reportService.addReport(dto, report, location, description, category, status);
     }
 
+    @PutMapping("{id}")
+    private void updateReport(@RequestBody CreateReportDto dto, @PathVariable Long id) {
+        reportService.updateReport(dto, id);
+    }
 
 
 }

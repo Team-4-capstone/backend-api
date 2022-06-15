@@ -15,4 +15,16 @@ public interface ReportRepository extends JpaRepository<Report, Integer> {
 //    @Query(nativeQuery = true, value = "UPDATE users SET password = :password WHERE id = :id")
 //    void updatePassword(Long id, String password);
 
+//    @Query(nativeQuery = true,
+//            value = "USE bomb_reporter_db; SELECT * FROM reports r WHERE r.id  = ?; ")
+//    String findById(@Param("id") String id);
+
+//
+//    @Query(nativeQuery = true,
+//            value = "USE bomb_reporter_db; SELECT * FROM reports r WHERE r.id  = ?; ")
+//    Report getAllById(Long id);
+
+    Report findReportById(Long id);
+
+
 }

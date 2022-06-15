@@ -3,9 +3,8 @@ package com.codeup.backendapi.service;
 import com.codeup.backendapi.data.*;
 import com.codeup.backendapi.dto.CreateReportDto;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -34,14 +33,6 @@ public class ReportService {
                           Report newReport, Location location,
                           Description description, Category category,
                           Status status) {
-
-//        if (categoryRepository.findByCategory(dto.getCategory()).equals(dto.getCategory())){
-//            System.out.println(dto.getCategory());
-//            System.out.println("yes");
-//        } else {
-//            System.out.println("nah");
-//        }
-
         newReport.setStatus(status);
         category.setCategory(dto.getCategory());
         newReport.setCategory(category);
@@ -69,5 +60,55 @@ public class ReportService {
 
     }
 
+    public void updateReport(CreateReportDto dto, Long id) {
+
+        Report reportToUpdate = reportRepository.findReportById(id);
+        Location locationToUpdate = locationRepository.findReportById(id);
+        Description descriptionToUpdate = descriptionRepository.findReportById(id);
+        Status statusToUpdate = statusRepository.findReportById(id);
+        Category categoryToUpdate = categoryRepository.findReportById(id);
+//        Location location = new Location(dto.getLat(), dto.getLon());
+//        Description description = new Description();
+//        Category category = new Category();
+//        description.setImg_path(dto.getImg_path());
+//        description.setSize(dto.getSize());
+//        description.setSecondaryColor(dto.getSecondaryColor());
+//        description.setColor(dto.getColor());
+//        description.setQuantity(dto.getQuantity());
+//        category.setCategory(dto.getCategory());
+//        repo.setMoreDetails(dto.getMoreDetails());
+//
+//
+//
+//        repo.setLocation(location);
+//        repo.setDescription(description);
+//        repo.setCategory(category);
+        categoryToUpdate.setCategory(dto.getCategory());
+        statusToUpdate.setStatus("unverified");
+        reportToUpdate.setCategory(categoryToUpdate);
+        reportToUpdate.setStatus(statusToUpdate);
+        reportToUpdate.setMoreDetails(dto.getMoreDetails());
+        locationToUpdate.setLatitude(dto.getLat());
+        locationToUpdate.setLongitude(dto.getLon());
+        reportToUpdate.setLocation(locationToUpdate);
+
+
+        descriptionToUpdate.setImg_path(dto.getImg_path());
+        descriptionToUpdate.setColor(dto.getColor());
+        descriptionToUpdate.setQuantity(dto.getQuantity());
+        descriptionToUpdate.setSecondaryColor(dto.getSecondaryColor());
+        descriptionToUpdate.setSize(dto.getSize());
+
+        reportToUpdate.setDescription(descriptionToUpdate);
+
+
+        statusRepository.save(statusToUpdate);
+        categoryRepository.save(categoryToUpdate);
+        descriptionRepository.save(descriptionToUpdate);
+        locationRepository.save(locationToUpdate);
+        reportRepository.save(reportToUpdate);
+
+
+    }
 
 }
