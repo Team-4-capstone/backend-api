@@ -31,6 +31,7 @@ CREATE TABLE description
     id              INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     size            VARCHAR(2),
     color           varchar(20),
+    IMG_PATH        varchar(30),
     quantity        VARCHAR(10),
     secondary_color varchar(20)
 );
