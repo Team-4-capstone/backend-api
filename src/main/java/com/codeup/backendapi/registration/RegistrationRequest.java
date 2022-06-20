@@ -1,6 +1,5 @@
 package com.codeup.backendapi.registration;
 
-
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
