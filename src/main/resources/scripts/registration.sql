@@ -13,3 +13,6 @@ CREATE TABLE users
     enabled    BOOLEAN      NOT NULL,
     primary key (id)
 );
+
+# INSERT INTO users (id, name, username, email, password, role, locked, enabled)
+# VALUES (0, 'matt', 'mk', 'mk@gmail.com', 'password', 'user', false, true)
