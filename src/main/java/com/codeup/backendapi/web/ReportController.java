@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @CrossOrigin
 @RestController
@@ -25,6 +26,17 @@ public class ReportController {
     public List<Report> getAllReports() {
         return reportService.getAll();
     }
+
+    @GetMapping("{id}")
+    public Report getById(@PathVariable Long id) {
+        for (Report report : reportService.getAll()) {
+            if (Objects.equals(report.getId(), id)) {
+                return report;
+            }
+        }
+        return null;
+    }
+
 
     @PostMapping
     public String createPost(@RequestBody CreateReportDto dto) {
