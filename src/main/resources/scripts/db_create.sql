@@ -31,6 +31,7 @@ CREATE TABLE description
     id              INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     size            VARCHAR(2),
     color           varchar(20),
+    IMG_PATH        varchar(100),
     quantity        VARCHAR(10),
     secondary_color varchar(20)
 );
@@ -87,23 +88,3 @@ CREATE TABLE uxo_location
     FOREIGN KEY (reports_id) REFERENCES reports (id),
     FOREIGN KEY (uxo_location) REFERENCES location (id)
 );
-
-# CREATE TABLE photos
-# (
-#
-#     id            INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-#     img_file_name TEXT,
-#     img_file_path TEXT
-# );
-#
-# CREATE TABLE uxo_photos
-# (
-#     id         INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-#
-#     uxo_photos INT NOT NULL,
-#
-#     reports_id INT NOT NULL,
-#     FOREIGN KEY (uxo_photos) REFERENCES photos (id),
-#
-#     FOREIGN KEY (reports_id) REFERENCES reports (id)
-# );
