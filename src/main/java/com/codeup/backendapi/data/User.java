@@ -21,74 +21,38 @@ import java.util.Collections;
 @Entity
 @Table (name = "users")
 @DynamicUpdate
-public class User implements UserDetails {
+public class User {
 
     @Id
-    @SequenceGenerator(
-            name="student_sequence",
-            sequenceName = "student_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "student_sequence"
-    )
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long id;
     private String name;
     private String username;
     private String email;
     private String password;
     @Enumerated(EnumType.STRING)
-    private UserRole UserRole;
+    private Role role = Role.USER;
     private Boolean locked;
     private Boolean enabled;
     //    private LocalDateTime createdAt;
 
 
-    public User(String name, String username, String email, String password, com.codeup.backendapi.data.UserRole userRole, Boolean locked, Boolean enabled) {
+    public User(String name, String username, String email, String password, Role role, Boolean locked, Boolean enabled) {
         this.name = name;
         this.username = username;
         this.email = email;
         this.password = password;
-        UserRole = userRole;
+        role = role;
         this.locked = locked;
         this.enabled = enabled;
     }
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(UserRole.name());
-        return Collections.singletonList(authority);
+    public Role getRole() {
+        return role;
     }
 
-    @Override
-    public String getPassword() {
-        return null;
-    }
-
-    @Override
-    public String getUsername() {
-        return username;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return !locked;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return enabled;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public enum Role {USER, ADMIN};
