@@ -5,17 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicUpdate;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Optional;
 
 @Getter
 @Setter
@@ -39,7 +31,6 @@ public class User {
     private Boolean enabled;
     //    private LocalDateTime createdAt;
 
-
     public User(String name, String username, String email, String password, Role role, Boolean locked, Boolean enabled) {
         this.name = name;
         this.username = username;
@@ -59,5 +50,3 @@ public class User {
 
     public enum Role {USER, ADMIN};
 }
-
-

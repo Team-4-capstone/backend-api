@@ -25,9 +25,6 @@ import javax.validation.ConstraintViolationException;
 
 import static org.springframework.http.HttpStatus.*;
 
-/**
- * Thanks to Bruno Cleite
- */
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @ControllerAdvice
 @Slf4j
@@ -49,7 +46,6 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         String error = ex.getParameterName() + " parameter is missing";
         return buildResponseEntity(new ApiError(BAD_REQUEST, error, ex));
     }
-
 
     /**
      * Handle HttpMediaTypeNotSupportedException. This one triggers when JSON is invalid as well.

@@ -1,6 +1,5 @@
 package com.codeup.backendapi.data;
 
-
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
@@ -11,11 +10,9 @@ import java.util.List;
 @DynamicUpdate
 public class Description {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String size;
     private String color;
     private String quantity;
