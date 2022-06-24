@@ -5,6 +5,7 @@ import com.codeup.backendapi.data.*;
 import com.codeup.backendapi.dto.PostDto;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -30,6 +31,7 @@ public class PostService {
     public void addPost(PostDto dto, Posts post, Long id) {
 
         Posts posts = new Posts();
+        posts.setCreatedAt(posts.getCreatedAt());
         posts.setContent(dto.getComments());
         Report reportToUpdate = reportRepository.findReportById(id);
         Location locationToUpdate = locationRepository.findReportById(id);

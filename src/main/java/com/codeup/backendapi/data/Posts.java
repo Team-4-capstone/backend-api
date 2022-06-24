@@ -4,6 +4,8 @@ package com.codeup.backendapi.data;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -15,6 +17,8 @@ public class Posts {
     private Long id;
 
     private String content;
+
+    LocalDate createdAt = LocalDate.now();
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "uxo_posts",
@@ -58,11 +62,22 @@ public class Posts {
         this.content = content;
     }
 
+
+    public LocalDate getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDate createdAt) {
+        this.createdAt = createdAt;
+    }
+
     @Override
     public String toString() {
         return "Posts{" +
                 "id=" + id +
                 ", content='" + content + '\'' +
+                ", createdAt=" + createdAt +
+                ", report=" + report +
                 '}';
     }
 }
