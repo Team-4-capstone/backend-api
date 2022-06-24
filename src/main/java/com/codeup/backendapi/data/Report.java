@@ -28,6 +28,25 @@ public class Report {
     private Location location;
 
 
+
+    @JsonIgnoreProperties("report")
+    @JoinTable(name = "uxo_posts",
+            joinColumns =
+            @JoinColumn(name = "reports_id"),
+            inverseJoinColumns =
+            @JoinColumn(name = "uxo_posts"))
+    @OneToMany
+    private List<Posts> posts;
+
+
+    public List<Posts> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Posts> posts) {
+        this.posts = posts;
+    }
+
     @JsonIgnoreProperties("report")
     @JoinTable(name = "uxo_categories",
             joinColumns =
@@ -67,24 +86,6 @@ public class Report {
     @OneToOne
     private Status status;
 
-
-
-//    @JoinTable(name = "uxo_photos",
-//            joinColumns =
-//            @JoinColumn(name = "reports_id"),
-//            inverseJoinColumns =
-//            @JoinColumn(name = "uxo_photos"))
-//
-//    @OneToOne
-//    private Photo photo;
-//
-//    public Photo getPhoto() {
-//        return photo;
-//    }
-//
-//    public void setPhoto(Photo photo) {
-//        this.photo = photo;
-//    }
 
     public Status getStatus() {
         return status;
