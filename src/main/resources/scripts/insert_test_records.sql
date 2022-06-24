@@ -157,3 +157,23 @@ VALUES (1, 1, 1),
 #        (11, 11, 11),
 #        (12, 12, 12),
 #        (13, 13, 13);
+
+INSERT INTO posts(id, content)
+VALUES (0,'be safe out there'),
+       (0,'test'),
+       (0,'second');
+
+INSERT INTO uxo_posts(id, uxo_posts, reports_id)
+VALUES (1,1,1),
+       (2,2,1),
+       (3,3,2);
+
+
+
+SELECT uxo_posts FROM uxo_posts
+WHERE reports_id = 1;
+
+
+
+SELECT * from posts
+JOIN uxo_posts up on posts.id = up.uxo_posts WHERE reports_id = 1;
