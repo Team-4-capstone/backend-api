@@ -6,9 +6,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.IntStream;
 
-/**
- * Thanks to Bruno Cleite
- */
 public class EntityNotFoundException extends RuntimeException {
 
     public EntityNotFoundException(Class clazz, String... searchParamsMap) {
@@ -32,4 +29,3 @@ public class EntityNotFoundException extends RuntimeException {
     }
 
 }
-

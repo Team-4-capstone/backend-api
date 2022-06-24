@@ -8,11 +8,9 @@ import java.util.List;
 
 public interface LocationRepository extends JpaRepository<Location, Long> {
 
-
     @Query(nativeQuery = true,
             value = "USE bomb_reporter_db; SELECT id FROM uxo_location l WHERE l.reports_id  = ?; ")
     List<Location> findByLat(@Param("id") String id);
-
 
     Location findReportById(Long id);
 }

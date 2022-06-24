@@ -1,7 +1,5 @@
 package com.codeup.backendapi.data;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
@@ -26,7 +24,6 @@ public class Status {
             @JoinColumn(name = "uxo_status"))
 
     private List<Report> report;
-
 
     public Status(Long id, String status) {
         this.id = id;

@@ -1,7 +1,5 @@
 package com.codeup.backendapi.data;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
@@ -50,7 +48,6 @@ public class Location {
     public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
-
 
     public List<Report> getReport() {
         return report;

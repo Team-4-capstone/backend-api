@@ -50,7 +50,6 @@ public class ReportService {
 
         newReport.setDescription(description);
 
-
         statusRepository.save(status);
         categoryRepository.save(category);
         descriptionRepository.save(description);
@@ -59,11 +58,9 @@ public class ReportService {
         String reportId = reportRepository.findReportByLocation(dto.getLat());
 
         return reportId;
-
     }
 
     public void updateReport(CreateReportDto dto, Long id) {
-
 
 //        gets from the tables all objects that have the report id based on the parameter id from above
         Report reportToUpdate = reportRepository.findReportById(id);
@@ -85,7 +82,6 @@ public class ReportService {
         locationToUpdate.setLongitude(dto.getLon());
         reportToUpdate.setLocation(locationToUpdate);
 
-
         descriptionToUpdate.setImg_path(dto.getImg_path());
         descriptionToUpdate.setColor(dto.getColor());
         descriptionToUpdate.setQuantity(dto.getQuantity());
@@ -93,7 +89,6 @@ public class ReportService {
         descriptionToUpdate.setSize(dto.getSize());
 
         reportToUpdate.setDescription(descriptionToUpdate);
-
 
 //        save them back again into their respective repository to update them
         statusRepository.save(statusToUpdate);
@@ -104,5 +99,4 @@ public class ReportService {
 //        finally save the report tp update changes
         reportRepository.save(reportToUpdate);
     }
-
 }

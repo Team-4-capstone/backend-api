@@ -37,7 +37,6 @@ public class ReportController {
         return null;
     }
 
-
     @PostMapping
     public String createPost(@RequestBody CreateReportDto dto) {
 
@@ -53,6 +52,4 @@ public class ReportController {
     private void updateReport(@RequestBody CreateReportDto dto, @PathVariable Long id) {
         reportService.updateReport(dto, id);
     }
-
-
 }

@@ -27,8 +27,6 @@ public class Report {
     @OneToOne
     private Location location;
 
-
-
     @JsonIgnoreProperties("report")
     @JoinTable(name = "uxo_posts",
             joinColumns =
@@ -54,9 +52,10 @@ public class Report {
             inverseJoinColumns =
             @JoinColumn(name = "uxo_categories"))
 
-
     @OneToOne
     private Category category;
+
+
     @JsonIgnoreProperties("report")
     @JoinTable(name = "uxo_description",
             joinColumns =
@@ -85,8 +84,6 @@ public class Report {
 
     @OneToOne
     private Status status;
-
-
     public Status getStatus() {
         return status;
     }
@@ -94,7 +91,6 @@ public class Report {
     public void setStatus(Status status) {
         this.status = status;
     }
-
 
     public Report(Long id, String moreDetails, Location location, Category category, Description description, Status status) {
         this.id = id;
@@ -139,7 +135,6 @@ public class Report {
     public void setCategory(Category category) {
         this.category = category;
     }
-
 
     @Override
     public String toString() {
