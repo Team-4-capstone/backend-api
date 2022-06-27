@@ -2,15 +2,27 @@ DROP DATABASE if exists bomb_reporter_db;
 CREATE DATABASE if not exists bomb_reporter_db;
 USE bomb_reporter_db;
 
+CREATE TABLE users
+(
+    id         BIGINT       NOT NULL AUTO_INCREMENT,
+    name       VARCHAR(30)  NOT NULL,
+    username   VARCHAR(60)  NOT NULL,
+    email      VARCHAR(200) NOT NULL,
+    password   VARCHAR(60)  NOT NULL,
+    role       VARCHAR(32)  NOT NULL,
+    locked     BOOLEAN      NOT NULL,
+    enabled    BOOLEAN      NOT NULL,
+    primary key (id)
+);
 
+# INSERT INTO users (id, name, username, email, password, role, locked, enabled)
+# VALUES (0, 'matt', 'mk', 'mk@gmail.com', 'password', 'user', false, true)
 
 CREATE TABLE reports
 (
     id           INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     more_details TEXT
 );
-
-
 
 CREATE TABLE location
 (
@@ -21,9 +33,10 @@ CREATE TABLE location
 
 CREATE TABLE description
 (
-    id              INT        NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id              INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     size            VARCHAR(2),
     color           varchar(20),
+    IMG_PATH        varchar(100),
     quantity        VARCHAR(10),
     secondary_color varchar(20)
 );
@@ -79,24 +92,4 @@ CREATE TABLE uxo_location
     reports_id   INT NOT NULL,
     FOREIGN KEY (reports_id) REFERENCES reports (id),
     FOREIGN KEY (uxo_location) REFERENCES location (id)
-);
-
-CREATE TABLE photos
-(
-
-    id            INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    img_file_name TEXT,
-    img_file_path TEXT
-);
-
-CREATE TABLE uxo_photos
-(
-    id         INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-
-    uxo_photos INT NOT NULL,
-
-    reports_id INT NOT NULL,
-    FOREIGN KEY (uxo_photos) REFERENCES photos (id),
-
-    FOREIGN KEY (reports_id) REFERENCES reports (id)
 );

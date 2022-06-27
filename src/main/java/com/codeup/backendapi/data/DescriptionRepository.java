@@ -4,4 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface DescriptionRepository extends JpaRepository<Description, Long> {
 
+    Description findReportById(Long id);
+
 }

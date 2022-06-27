@@ -9,17 +9,18 @@ public class CreateReportDto {
     private String lat;
     private String lon;
     private String moreDetails;
-
+    private String img_path;
     private String size;
     private String color;
     private String quantity;
     private String secondaryColor;
 
-    public CreateReportDto(String category, String lat, String lon, String moreDetails, String size,String color, String quantity, String secondaryColor) {
+    public CreateReportDto(String category, String lat, String lon, String moreDetails, String img_path, String size, String color, String quantity, String secondaryColor) {
         this.category = category;
         this.lat = lat;
         this.lon = lon;
         this.moreDetails = moreDetails;
+        this.img_path = img_path;
         this.size = size;
         this.color = color;
         this.quantity = quantity;
@@ -85,8 +86,13 @@ public class CreateReportDto {
         this.lon = lon;
     }
 
+    public String getImg_path() {
+        return img_path;
+    }
 
-
+    public void setImg_path(String img_path) {
+        this.img_path = img_path;
+    }
 
     public String getMoreDetails() {
         return moreDetails;

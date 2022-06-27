@@ -1,6 +1,5 @@
 package com.codeup.backendapi.data;
 
-
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
@@ -10,8 +9,6 @@ import java.util.List;
 @Table(name = "categories")
 @DynamicUpdate
 public class Category {
-
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,8 +21,6 @@ public class Category {
             @JoinColumn(name = "reports_id"),
             inverseJoinColumns =
             @JoinColumn(name = "uxo_categories"))
-
-
 
     private List<Report> report;
 

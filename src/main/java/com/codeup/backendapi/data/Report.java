@@ -1,11 +1,9 @@
 package com.codeup.backendapi.data;
 
-import com.codeup.backendapi.domain.Photo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "reports")
@@ -28,14 +26,12 @@ public class Report {
     @OneToOne
     private Location location;
 
-
     @JsonIgnoreProperties("report")
     @JoinTable(name = "uxo_categories",
             joinColumns =
             @JoinColumn(name = "reports_id"),
             inverseJoinColumns =
             @JoinColumn(name = "uxo_categories"))
-
 
     @OneToOne
     private Category category;
@@ -68,25 +64,6 @@ public class Report {
     @OneToOne
     private Status status;
 
-
-
-    @JoinTable(name = "uxo_photos",
-            joinColumns =
-            @JoinColumn(name = "reports_id"),
-            inverseJoinColumns =
-            @JoinColumn(name = "uxo_photos"))
-
-    @OneToOne
-    private Photo photo;
-
-    public Photo getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(Photo photo) {
-        this.photo = photo;
-    }
-
     public Status getStatus() {
         return status;
     }
@@ -95,15 +72,13 @@ public class Report {
         this.status = status;
     }
 
-
-    public Report(Long id, String moreDetails, Location location, Category category, Description description, Status status, Photo photo) {
+    public Report(Long id, String moreDetails, Location location, Category category, Description description, Status status) {
         this.id = id;
         this.moreDetails = moreDetails;
         this.location = location;
         this.category = category;
         this.description = description;
         this.status = status;
-        this.photo = photo;
     }
 
     public Report() {
@@ -140,7 +115,6 @@ public class Report {
     public void setCategory(Category category) {
         this.category = category;
     }
-
 
     @Override
     public String toString() {

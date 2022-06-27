@@ -12,4 +12,5 @@ public interface CategoryRepository extends JpaRepository<Category, Long> {
 //            value = "SELECT name FROM categories WHERE categories.name = ?; ")
 //    String findByCategory(String name);
 
+    Category findReportById(Long id);
 }
