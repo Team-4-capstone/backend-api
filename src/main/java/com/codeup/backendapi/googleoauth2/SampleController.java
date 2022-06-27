@@ -1,4 +1,4 @@
-package googleoauth2;
+package com.codeup.backendapi.googleoauth2;
 
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.web.bind.annotation.GetMapping;
