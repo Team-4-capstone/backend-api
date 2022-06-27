@@ -1,0 +1,10 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: //add your client id here
+            client-secret: //add your client secret here
+            redirect-uri: https://localhost:8080/login/google/callback
+
