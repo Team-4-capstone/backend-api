@@ -4,14 +4,14 @@ USE bomb_reporter_db;
 
 CREATE TABLE users
 (
-    id         BIGINT       NOT NULL AUTO_INCREMENT,
-    name       VARCHAR(30)  NOT NULL,
-    username   VARCHAR(60)  NOT NULL,
-    email      VARCHAR(200) NOT NULL,
-    password   VARCHAR(60)  NOT NULL,
-    role       VARCHAR(32)  NOT NULL,
-    locked     BOOLEAN      NOT NULL,
-    enabled    BOOLEAN      NOT NULL,
+    id       BIGINT       NOT NULL AUTO_INCREMENT,
+    name     VARCHAR(30)  NOT NULL,
+    username VARCHAR(60)  NOT NULL,
+    email    VARCHAR(200) NOT NULL,
+    password VARCHAR(60)  NOT NULL,
+    role     VARCHAR(32)  NOT NULL,
+    locked   BOOLEAN      NOT NULL,
+    enabled  BOOLEAN      NOT NULL,
     primary key (id)
 );
 
@@ -34,7 +34,7 @@ CREATE TABLE location
 CREATE TABLE description
 (
     id              INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    size            VARCHAR(2),
+    size            VARCHAR(8),
     color           varchar(20),
     IMG_PATH        varchar(100),
     quantity        VARCHAR(10),
@@ -93,3 +93,19 @@ CREATE TABLE uxo_location
     FOREIGN KEY (reports_id) REFERENCES reports (id),
     FOREIGN KEY (uxo_location) REFERENCES location (id)
 );
+
+CREATE TABLE posts
+(
+    id      INT  NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    content TEXT NOT NULL
+);
+
+CREATE TABLE uxo_posts
+(
+    id         INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    uxo_posts  INT NOT NULL,
+    reports_id INT NOT NULL,
+    FOREIGN KEY (reports_id) REFERENCES reports (id),
+    FOREIGN KEY (uxo_posts) REFERENCES posts (id)
+)
+

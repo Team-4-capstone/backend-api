@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "reports")
@@ -27,6 +28,24 @@ public class Report {
     private Location location;
 
     @JsonIgnoreProperties("report")
+    @JoinTable(name = "uxo_posts",
+            joinColumns =
+            @JoinColumn(name = "reports_id"),
+            inverseJoinColumns =
+            @JoinColumn(name = "uxo_posts"))
+    @OneToMany
+    private List<Posts> posts;
+
+
+    public List<Posts> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Posts> posts) {
+        this.posts = posts;
+    }
+
+    @JsonIgnoreProperties("report")
     @JoinTable(name = "uxo_categories",
             joinColumns =
             @JoinColumn(name = "reports_id"),
@@ -35,6 +54,8 @@ public class Report {
 
     @OneToOne
     private Category category;
+
+
     @JsonIgnoreProperties("report")
     @JoinTable(name = "uxo_description",
             joinColumns =
@@ -63,7 +84,6 @@ public class Report {
 
     @OneToOne
     private Status status;
-
     public Status getStatus() {
         return status;
     }
