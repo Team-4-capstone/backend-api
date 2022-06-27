@@ -108,3 +108,4 @@ CREATE TABLE uxo_posts
     FOREIGN KEY (reports_id) REFERENCES reports (id),
     FOREIGN KEY (uxo_posts) REFERENCES posts (id)
 )
+
