@@ -1,4 +1,4 @@
-package googleoauth2;
+package com.codeup.backendapi.googleoauth2;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
