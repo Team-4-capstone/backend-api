@@ -1,0 +1,20 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 385120007311-c4oa7kv0pa52h9n7bmtcob2bdo1c5nv2.apps.googleusercontent.com
+            client-secret: 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
+            redirect-uri: https://localhost:8080/login/google/callback
+  datasource:
+    url: jdbc:mysql://localhost:3306/bomb_reporter_db?createDatabaseIfNotExist=true
+    username: root
+    password: codeup
+server:
+  port: 8081
+#  spring.datasource.url=jdbc:mysql://localhost:3306/bomb_reporter_db?createDatabaseIfNotExist=true
+#  spring.datasource.username=root
+#  spring.datasource.password=codeup
+#  spring.jpa.hibernate.ddl-auto=update
+#  server.port=8081
