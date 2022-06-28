@@ -96,8 +96,9 @@ CREATE TABLE uxo_location
 
 CREATE TABLE posts
 (
-    id      INT  NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    content TEXT NOT NULL
+    id         INT      NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    content    TEXT     NOT NULL,
+    created_at DATETIME NOT NULL
 );
 
 CREATE TABLE uxo_posts

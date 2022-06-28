@@ -29,12 +29,13 @@ VALUES (1, 'missiles/rockets'),
 #        (13, 'missles/rockets');
 
 INSERT INTO description(id, size, color, IMG_PATH, quantity, secondary_color)
-VALUES (1, 'lg', 'gray', 'https://oceans2.s3.us-east-2.amazonaws.com/Screen+Shot+2022-06-16+at+13.40.42.png', '1', 'none'),
-       (2, 'sm', 'green',
-        'https://oceans2.s3.us-east-2.amazonaws.com/Screen+Shot+2022-06-16+at+13.40.42.png', '3',
+VALUES (1, 'lg', 'gray', 'https://oceans2.s3.us-east-2.amazonaws.com/missiles.png', '1',
         'none'),
-       (3, 'md', 'gray', 'https://oceans2.s3.us-east-2.amazonaws.com/Screen+Shot+2022-06-08+at+16.11.41.png', '1', 'none'),
-       (4, 'md', 'green', 'https://oceans2.s3.us-east-2.amazonaws.com/Screen+Shot+2022-06-08+at+11.20.16.png', '1',
+       (2, 'sm', 'green',
+        'https://oceans2.s3.us-east-2.amazonaws.com/other.png', '3',
+        'none'),
+       (3, 'md', 'gray', 'https://oceans2.s3.us-east-2.amazonaws.com/mortar.png', '1', 'none'),
+       (4, 'md', 'green', 'https://oceans2.s3.us-east-2.amazonaws.com/landmine.png', '1',
         'none');
 #        (5, 'sm', 'green', 'https://oceans2.s3.us-east-2.amazonaws.com/Screen+Shot+2022-06-08+at+16.11.41.png', '1',
 #         'none'),
@@ -158,22 +159,26 @@ VALUES (1, 1, 1),
 #        (12, 12, 12),
 #        (13, 13, 13);
 
-INSERT INTO posts(id, content)
-VALUES (0,'be safe out there'),
-       (0,'test'),
-       (0,'second');
+INSERT INTO posts(id, content, created_at)
+VALUES (0, 'be safe out there', '2022-02-24'),
+       (0, 'is it still there?', '2022-04-26'),
+       (0, 'thanks for all the info', '2022-05-13');
 
 INSERT INTO uxo_posts(id, uxo_posts, reports_id)
-VALUES (1,1,1),
-       (2,2,1),
-       (3,3,2);
+VALUES (1, 1, 1),
+       (2, 2, 1),
+       (3, 3, 2);
 
 
-
-SELECT uxo_posts FROM uxo_posts
+SELECT uxo_posts
+FROM uxo_posts
 WHERE reports_id = 1;
 
 
 
-SELECT * from posts
-JOIN uxo_posts up on posts.id = up.uxo_posts WHERE reports_id = 1;
+SELECT *
+from posts
+         JOIN uxo_posts up on posts.id = up.uxo_posts
+WHERE reports_id = 1;
+
+

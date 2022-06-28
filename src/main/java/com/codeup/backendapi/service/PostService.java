@@ -31,6 +31,7 @@ public class PostService {
 
         Posts posts = new Posts();
         posts.setContent(dto.getComments());
+        posts.setCreatedAt(posts.getCreatedAt());
         Report reportToUpdate = reportRepository.findReportById(id);
         Location locationToUpdate = locationRepository.findReportById(id);
         Description descriptionToUpdate = descriptionRepository.findReportById(id);
