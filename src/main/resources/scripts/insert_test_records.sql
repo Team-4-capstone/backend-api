@@ -180,3 +180,5 @@ SELECT *
 from posts
          JOIN uxo_posts up on posts.id = up.uxo_posts
 WHERE reports_id = 1;
+
+
