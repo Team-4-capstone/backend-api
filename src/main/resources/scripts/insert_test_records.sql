@@ -160,8 +160,8 @@ VALUES (1, 1, 1),
 
 INSERT INTO posts(id, content, created_at)
 VALUES (0,'be safe out there', '2022-02-24'),
-       (0,'they is it still there?', '2022-04-26'),
-       (0,'second', '2022-05-13');
+       (0,'is it still there?', '2022-04-26'),
+       (0,'thanks for all the info', '2022-05-13');
 
 INSERT INTO uxo_posts(id, uxo_posts, reports_id)
 VALUES (1,1,1),
