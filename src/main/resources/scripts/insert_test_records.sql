@@ -158,16 +158,15 @@ VALUES (1, 1, 1),
 #        (12, 12, 12),
 #        (13, 13, 13);
 
-INSERT INTO posts(id, content)
-VALUES (0,'be safe out there'),
-       (0,'test'),
-       (0,'second');
+INSERT INTO posts(id, content, created_at)
+VALUES (0,'be safe out there', '2022-02-24'),
+       (0,'they is it still there?', '2022-04-26'),
+       (0,'second', '2022-05-13');
 
 INSERT INTO uxo_posts(id, uxo_posts, reports_id)
 VALUES (1,1,1),
        (2,2,1),
        (3,3,2);
-
 
 
 SELECT uxo_posts FROM uxo_posts
