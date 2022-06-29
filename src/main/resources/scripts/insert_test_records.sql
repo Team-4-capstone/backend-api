@@ -14,10 +14,10 @@ VALUES (1, '48.877491', '28.02372'),
 #        (13, '50.4512974', '30.50552771');
 
 INSERT INTO categories(id, category)
-VALUES (1, 'missiles/rockets'),
-       (2, 'miscellaneous'),
-       (3, 'projectiles/mortars'),
-       (4, 'landmines');
+VALUES (1, 'Missiles/Rockets'),
+       (2, 'Miscellaneous'),
+       (3, 'Projectiles/Mortars'),
+       (4, 'Landmines');
 #        (5, 'landmines'),
 #        (6, 'missiles/rockets'),
 #        (7, 'miscellaneous'),
@@ -29,14 +29,14 @@ VALUES (1, 'missiles/rockets'),
 #        (13, 'missles/rockets');
 
 INSERT INTO description(id, size, color, IMG_PATH, quantity, secondary_color)
-VALUES (1, 'lg', 'gray', 'https://oceans2.s3.us-east-2.amazonaws.com/missiles.png', '1',
-        'none'),
-       (2, 'sm', 'green',
+VALUES (1, 'Lg', 'Gray', 'https://oceans2.s3.us-east-2.amazonaws.com/missiles.png', '1',
+        'None'),
+       (2, 'Sm', 'Green',
         'https://oceans2.s3.us-east-2.amazonaws.com/other.png', '3',
-        'none'),
-       (3, 'md', 'gray', 'https://oceans2.s3.us-east-2.amazonaws.com/mortar.png', '1', 'none'),
-       (4, 'md', 'green', 'https://oceans2.s3.us-east-2.amazonaws.com/landmine.png', '1',
-        'none');
+        'None'),
+       (3, 'Md', 'Green', 'https://oceans2.s3.us-east-2.amazonaws.com/og7.jpeg', '1', 'None'),
+       (4, 'Md', 'Green', 'https://oceans2.s3.us-east-2.amazonaws.com/landmine.png', '1',
+        'None');
 #        (5, 'sm', 'green', 'https://oceans2.s3.us-east-2.amazonaws.com/Screen+Shot+2022-06-08+at+16.11.41.png', '1',
 #         'none'),
 #        (6, 'lg', 'gray', c '1',
@@ -57,10 +57,10 @@ VALUES (1, 'lg', 'gray', 'https://oceans2.s3.us-east-2.amazonaws.com/missiles.pn
 #         'none');
 
 INSERT INTO status(id, status)
-VALUES (1, 'unverified'),
-       (2, 'unverified'),
-       (3, 'unverified'),
-       (4, 'unverified');
+VALUES (1, 'Unverified'),
+       (2, 'Unverified'),
+       (3, 'Verified'),
+       (4, 'Unverified');
 #        (5, 'unverified'),
 #        (6, 'unverified'),
 #        (7, 'unverified'),
@@ -73,13 +73,25 @@ VALUES (1, 'unverified'),
 
 INSERT INTO reports(id, more_details)
 VALUES (1,
-        'This is the Russian 220mm Uragan 9M27, a long-range, electrically initiated, solid propellant, fin stabilised series of rockets fired from the BM-27 Uragan (Ураган) a self-propelled multiple rocket launcher system. The 9M27 series of rockets can deliver chemical, explosive, scatterable landmines and submunitions, all of which are detonated by electric timing fuzes. The warheads weigh between 90 and 100kgs, depending on the payload. A full salvo of 16 rockets can be fired in 20 seconds and can engage targets within a range of 35 kilometres. Because of the size of the warhead, the range of the rocket and the speed that a salvo can be delivered, the BM-27 is very effective at landmine laying. Minefields can be laid behind a retreating enemy or be used to trap an enemy by encircling them with landmines.'),
+        'I found it by a building. Looks to be about 2 meters in length'),
        (2,
-        'This is the Russian PFM-1 (ПФМ-1), a plastic, liquid-filled high-explosive (HE), scatterable, anti-personnel (AP), blast landmine sometimes known as the Butterfly or Birdmine. In Afghanistan, the PFM-1 is known as the Green Parrot. The PFM-1 has a plastic body and is filled with approximately 37grams of liquid high-explosive. The fuze is hydraulic pressure operated and incorporates an arming delay. The landmine is normally coloured green, Khaki brown or sand-brown. The landmine has a thin wing and a thicker wing with the thicker wing containing the liquid explosive. The PFM-1 landmine is a reverse-engineered copy of the American BLU-43. A self-destruct (SD) variant of this landmine, the PFM-1S, is intended to randomly self-destruct (SD) over a period of time.'),
+        'This was on the side of the road. This is approximately 200 meters from a school. Unsure if it has explosives still or not.'),
        (3,
-        'This is the Russian 120mm OF-843B (ОФ-843B), a high-explosive (HE), fragmentation mortar also manufactured in Bulgaria and designated the FE-843B. Developed from the earlier OF-843A, the OF-843B is a well-streamlined conventional HE fragmentation mortar for general bombardment purposes. The body is of ferro-steel, with six gas-check grooves around the bourrelet and threaded at the nose for a fuze (GVMZ-7, RV-1, M-12 or OFZ-2M) and at the rear for the tail unit. The tail unit is of welded steel, with eight fins and the NBL-35 primary cartridge is inserted into the rear. Up to six VTM-N3 secondary increments may be clipped around the boom. A complete round is known as the VOF-843B. The mortar is loaded and slides down the mortar tube until the percussion primer in the ignition cartridge strikes the firing pin in the base of the mortar.'),
+        'This is the Russian 58mm PG-16 (ΠГ-16), a high-explosive anti-tank fin-stabilised with tracer (HEAT-FS-T), self-destruct (SD), surface-to-surface, shoulder-launched, recoilless rocket.
+
+The point-initiating base-detonating (PIBD) fuze consists of a piezoelectric crystal PI element and a setback-armed BD element containing a self-destruct feature.
+
+This system uses a streamlined HEAT rocket with a powerful HMX high-explosive (HE) filling to give an anti-armour performance similar to that achieved by the 57mm S-5 HEAT and HEAT/fragmentation Air-to-Ground rockets.
+
+The fuzing mechanism to the PG-16 rocket (Grom) is similar to that used on the PG-7 series of HEAT rockets used with the RPG-7 launcher (ie. PIBD Piezo Electric) with self-destruct mechanism.
+
+When the rocket is fired and leaves the launcher the sustainer motor is ignited and blows off the booster motor, which is ejected to the rear.
+
+The rocket has 6 spring out fins to stabilise it in flight and two tracer elements.
+
+Compared to the contemporary PG-7, the PG-16 provides greater effective range and better accuracy, due to the smaller calibre warhead and more powerful rocket booster.'),
        (4,
-        'This is the Russian TM-62M, a high-explosive (HE), large, metal-cased, anti-vehicle (AV), blast landmine which may be laid mechanically or by hand. The landmine is part of the TM-62 series, further developed from the TM-46 and TM-57 to offer improved capability and greater flexibility. In addition to a conventional pressure fuze (MVCh-62), the landmine accepts a variety of other fuzes that give it a full-width attack capability against vehicles. The fuze well is the same size as the one in the TM-72. The TM-62M will, therefore, accept the MVN-72 and MVN-80 magnetic influence fuzes. The cylindrical body has a stepped top surface with a centrally threaded fuze well, sealed with a threaded plug during transit. At the base of the fuze well is a large booster in a metal canister. Unlike previous models, the landmine body is filled to the surface with explosives and does not have a collapsible pressure plate.');
+        'I at first thought it was a rock. Then I saw that it looked like something plastic. It is black on top. I did not move it. It is on a walking path.');
 #        (5,
 #         'This is the Russian MON-90, a high-explosive (HE), claymore shaped, plastic-bodied, directional, anti-personnel (AP) landmine which is designed to wound or kill by its fragmentation. The landmine is similar in appearance to the MON-50 but is almost twice the size with a much greater depth. It has an attachment point on the bottom for connecting a special clamp which can be attached to wood, metal etc but it has no scissor-type legs. It has a sight centred on the top which is flanked by two detonator cavities. The landmine contains 6.2kg of RDX (PVV-5A) to propel approximately 2000 steel rod fragments to a lethal range of 90 metres in a 54'' arc (spread of 60m at a 90m range). The MON-90 is usually command actuated using a PN manual inductor and an EDP-R electric detonator. It can also be actuated by a variety of boobytrap switches including the MUV series pull, the MVE-72 electric break-wire or the VP13 seismic controller.'),
 #        (6,
@@ -160,9 +172,9 @@ VALUES (1, 1, 1),
 #        (13, 13, 13);
 
 INSERT INTO posts(id, content, created_at)
-VALUES (0, 'be safe out there', '2022-02-24'),
-       (0, 'is it still there?', '2022-04-26'),
-       (0, 'thanks for all the info', '2022-05-13');
+VALUES (0, 'Be safe out there!', '2022-02-24'),
+       (0, 'Is it still there?', '2022-04-26'),
+       (0, 'Thanks for all the info!', '2022-05-13');
 
 INSERT INTO uxo_posts(id, uxo_posts, reports_id)
 VALUES (1, 1, 1),
