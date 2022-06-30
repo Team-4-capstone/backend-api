@@ -31,7 +31,7 @@ jobs:
             cd ${{ secrets.DEPLOY_DIR }}
             git checkout deploy
             git pull origin deploy
-            echo '${{ secrets.APPLICATION_PROPERTIES }}' > src/main/resources/application.properties
+            echo '${{ secrets.APPLICATION_YML }}' > src/main/resources/application.yml
             echo '${{ secrets.KEYS_JS }}' > src/main/resources/static/js/keys.js
             echo '${{ secrets.CONFIG_JS }}' > src/main/resources/static/js/config.js
             echo '${{ secrets.HTTPS_CERT }}' | base64 -d > fulgentcorp.p12
