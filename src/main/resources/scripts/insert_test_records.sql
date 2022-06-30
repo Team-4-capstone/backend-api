@@ -180,17 +180,3 @@ INSERT INTO uxo_posts(id, uxo_posts, reports_id)
 VALUES (1, 1, 1),
        (2, 2, 1),
        (3, 3, 2);
-
-
-SELECT uxo_posts
-FROM uxo_posts
-WHERE reports_id = 1;
-
-
-
-SELECT *
-from posts
-         JOIN uxo_posts up on posts.id = up.uxo_posts
-WHERE reports_id = 1;
-
-
