@@ -108,5 +108,20 @@ CREATE TABLE uxo_posts
     reports_id INT NOT NULL,
     FOREIGN KEY (reports_id) REFERENCES reports (id),
     FOREIGN KEY (uxo_posts) REFERENCES posts (id)
-)
+);
+
+CREATE TABLE nomenclature
+(
+    id           INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nomenclature VARCHAR(30)
+);
+
+CREATE TABLE uxo_nomenclature
+(
+    id               INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nomenclature_id INT NOT NULL,
+    reports_id       INT NOT NULL,
+    FOREIGN KEY (reports_id) REFERENCES reports (id),
+    FOREIGN KEY (nomenclature_id) REFERENCES nomenclature (id)
+);
 
